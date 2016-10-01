@@ -2,13 +2,13 @@ import {transformOriginProp, transformProp} from './getCSSProps.js';
 
 
 
-const scaleFunction = (element, shadow, scale) => {
-    shadow.style[transformProp] = `scale(${scale})`;
+const translateZFunction = (element, shadow, translateZ) => {
+    shadow.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;
     shadow.style.opacity = 1;
-    element.style[transformProp] = `scale(${scale})`;
+    element.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;
 }
 
-const clipPath = (element, shadow, scale, top, right, bottom, left, property, timeout) => {
+const clipPath = (element, shadow, translateZ, top, right, bottom, left, property, timeout) => {
     setTimeout(() => {
         shadow.style.top = `${top}%`;
         shadow.style.left = `${left}%`;
@@ -17,7 +17,7 @@ const clipPath = (element, shadow, scale, top, right, bottom, left, property, ti
         element.style[transformOriginProp] = `${left}% ${top}%`;
         element.style[`${property}`] = `polygon(${left}% ${top}%, ${100-right}% ${top}%, ${100-right}% ${100-bottom}%, ${left}% ${100-bottom}%)`;
         element.style
-        scaleFunction(element, shadow, scale);
+        translateZFunction(element, shadow, translateZ);
     }, timeout)
 }
   
@@ -30,10 +30,10 @@ const clip = (element, shadow, top, right, bottom, left, property, width, height
     element.style[transformOriginProp] = `${left}% ${top}%`;
 }
 
-const initialClip = (element, shadow, scale, top, right, bottom, left, property, width, height, timeout) => {
+const initialClip = (element, shadow, translateZ, top, right, bottom, left, property, width, height, timeout) => {
     setTimeout(() => {
         clip(element, shadow, top, right, bottom, left, property, width, height);
-        scaleFunction(element, shadow, scale);       
+        translateZFunction(element, shadow, translateZ);       
     }, timeout);  
 }
 

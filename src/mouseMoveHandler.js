@@ -1,10 +1,10 @@
 import {transitionProp, transformProp} from './getCSSProps';
 
-const mouseMoveHandler = (element, shadow, scale, speedX, speedY, mouseX, mouseY) => {
+const mouseMoveHandler = (element, shadow, speedX, speedY, translateZ, mouseX, mouseY) => {
         element.style[transitionProp] = 'none';
         shadow.style[transitionProp] = 'none';
-        element.style[transformProp] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
-        shadow.style[transformProp] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
+        element.style[transformProp] = `perspective(1000px) translate3D(${mouseX/speedX}px, ${mouseY/speedY}px, ${translateZ}px)`;
+        shadow.style[transformProp] = `perspective(1000px) translate3D(${mouseX/speedX}px, ${mouseY/speedY}px, ${translateZ}px)`;
     }
 
 export {mouseMoveHandler};

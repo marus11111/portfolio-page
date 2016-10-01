@@ -1,4 +1,9 @@
-const optionsScale = [1.05, 1.1, 1.1, 1.15];
+const optionsTranslate3D = [
+        [90, 100, 100],
+        [40, 40, 90],
+        [70, 70, 90],
+        [30, 55, 80]
+    ]
 
 const optionsClip = [
         [0, 0, 30, 50],
@@ -7,11 +12,5 @@ const optionsClip = [
         [30, 52, 0, 0]        
     ]
 
-const optionsTranslate = [
-        [90, 100],
-        [40, 40],
-        [70, 70],
-        [30, 55]
-    ]
 
-export {optionsScale, optionsClip, optionsTranslate};
+export {optionsTranslate3D, optionsClip};

@@ -1,5 +1,5 @@
 import {parallaxElements, shadows} from './getDOMElements';
-import {optionsScale, optionsClip, optionsTranslate} from './transformOptions';
+import {optionsTranslate3D, optionsClip} from './transformOptions';
 import {clipProp} from './getCSSProps';
 import {clipPath, initialClip, clip} from './clipFunction';
 import {mouseMoveHandler} from './mouseMoveHandler';
@@ -22,12 +22,12 @@ const headerEffect = () => {
 
     if (/clippath/i.test(clipProp)){
         for (let i=0; i<parallaxElements.length; i++){
-            clipPath(parallaxElements[i], shadows[i], optionsScale[i], ...optionsClip[i], clipProp, 0);
+            clipPath(parallaxElements[i], shadows[i], optionsTranslate3D[i][2], ...optionsClip[i], clipProp, 0);
         }
     } 
     else if (clipProp === 'clip') {
         for (let i=0; i<parallaxElements.length; i++){
-            initialClip(parallaxElements[i], shadows[i], optionsScale[i], ...optionsClip[i], clipProp, baseWidth, baseHeight, 0);
+            initialClip(parallaxElements[i], shadows[i], optionsTranslate3D[i][2], ...optionsClip[i], clipProp, baseWidth, baseHeight, 0);
         } 
     }
     else { return; } 
@@ -37,7 +37,7 @@ const headerEffect = () => {
             let x = event.clientX - baseWidth/2;
             let y = event.clientY - baseHeight/2;
             for (let i=0; i<parallaxElements.length; i++){
-                mouseMoveHandler(parallaxElements[i], shadows[i], optionsScale[i], ...optionsTranslate[i], x, y); 
+                mouseMoveHandler(parallaxElements[i], shadows[i], ...optionsTranslate3D[i], x, y); 
             }
         })
     }, 2000);

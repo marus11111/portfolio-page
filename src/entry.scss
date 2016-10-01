@@ -1,0 +1,38 @@
+$w: 'width';
+$h: 'height';
+
+body, html {
+    margin: 0;
+    #{$h}: 100%; 
+    overflow:hidden; 
+}
+
+
+.header-background {
+    background: {
+        image: url(../pics/background.jpg);
+        size: cover;
+        position: 50% 50%;
+        }
+}
+
+.container {
+    #{$w}: 100%;
+    #{$h}: 100%;
+    cursor: default;
+    position: relative;
+    .parallax {
+        #{$w}: 100%;
+        #{$h}: 100%; 
+        position:absolute;
+        transition: transform 2s linear;
+    }
+    .shadow {
+        position: absolute;
+        transform-origin: 0% 0%;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+        opacity: 0;
+        transition: transform 2s linear, opacity 2s linear;
+    }
+}
+

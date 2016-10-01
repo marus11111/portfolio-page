@@ -1,10 +1,10 @@
-import {transformOriginProp, transformProp} from './getCSSProps.js';
+import {transformOriginProp, transformProp, shadowProp} from './getCSSProps.js';
 
 
 
 const translateZFunction = (element, shadow, translateZ) => {
     shadow.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;
-    shadow.style.opacity = 1;
+    shadow.style[shadowProp] = '0px 5px 25px 5px rgba(0,0,0,0.8)';
     element.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;
 }
 

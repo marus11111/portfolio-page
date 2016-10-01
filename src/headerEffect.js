@@ -9,16 +9,6 @@ const headerEffect = () => {
 
     let baseWidth = window.innerWidth;
     let baseHeight = window.innerHeight;
-    
-    window.addEventListener('resize', () =>{
-        baseWidth = window.innerWidth;
-        baseHeight = window.innerHeight;
-        if (clipProp === 'clip'){
-            for (let i=0; i<parallaxElements.length; i++){
-            clip(parallaxElements[i], shadows[i], ...optionsClip[i], clipProp, baseWidth, baseHeight);
-            }
-        }
-    });
 
     if (/clippath/i.test(clipProp)){
         for (let i=0; i<parallaxElements.length; i++){
@@ -30,7 +20,17 @@ const headerEffect = () => {
             initialClip(parallaxElements[i], shadows[i], optionsTranslate3D[i][2], ...optionsClip[i], clipProp, baseWidth, baseHeight, 0);
         } 
     }
-    else { return; } 
+    else { return; }
+    
+    window.addEventListener('resize', () =>{
+        baseWidth = window.innerWidth;
+        baseHeight = window.innerHeight;
+        if (clipProp === 'clip'){
+            for (let i=0; i<parallaxElements.length; i++){
+            clip(parallaxElements[i], shadows[i], ...optionsClip[i], clipProp, baseWidth, baseHeight);
+            }
+        }
+    });
         
     setTimeout(()=>{
         document.getElementsByTagName('header')[0].addEventListener('mousemove', (event) =>{

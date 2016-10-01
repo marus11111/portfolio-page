@@ -23,5 +23,6 @@ const clipProp = clipPropTemporary ? clipPropTemporary : checkBrowserSupport('cl
 const transitionProp = checkBrowserSupport('transition', 'transform 3s linear');
 const transformOriginProp = checkBrowserSupport('transform-origin', '10% 10%');
 const transformProp = checkBrowserSupport('transform', 'perspective(1000px) translate3D(20px, 30px, 40px)');
+const shadowProp = checkBrowserSupport('box-shadow', '0px 5px 25px 5px rgba(0,0,0,0.8)');
 
-export {clipProp, transitionProp, transformOriginProp, transformProp}; 
+export {clipProp, transitionProp, transformOriginProp, transformProp, shadowProp}; 

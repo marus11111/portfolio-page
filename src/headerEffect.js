@@ -1,7 +1,7 @@
 import {parallaxElements, shadows} from './getDOMElements';
 import {optionsScale, optionsClip, optionsTranslate} from './transformOptions';
 import {clipProp} from './getCSSProps';
-import {clipPath, clip} from './clipFunction';
+import {clipPath, initialClip, clip} from './clipFunction';
 import {mouseMoveHandler} from './mouseMoveHandler';
     
      
@@ -9,6 +9,16 @@ const headerEffect = () => {
 
     let baseWidth = window.innerWidth;
     let baseHeight = window.innerHeight;
+    
+    window.addEventListener('resize', () =>{
+        baseWidth = window.innerWidth;
+        baseHeight = window.innerHeight;
+        if (clipProp === 'clip'){
+            for (let i=0; i<parallaxElements.length; i++){
+            clip(parallaxElements[i], shadows[i], ...optionsClip[i], clipProp, baseWidth, baseHeight);
+            }
+        }
+    });
 
     if (/clippath/i.test(clipProp)){
         for (let i=0; i<parallaxElements.length; i++){
@@ -17,7 +27,7 @@ const headerEffect = () => {
     } 
     else if (clipProp === 'clip') {
         for (let i=0; i<parallaxElements.length; i++){
-            clip(parallaxElements[i], shadows[i], optionsScale[i], ...optionsClip[i], clipProp, baseWidth, baseHeight, 0);
+            initialClip(parallaxElements[i], shadows[i], optionsScale[i], ...optionsClip[i], clipProp, baseWidth, baseHeight, 0);
         } 
     }
     else { return; } 

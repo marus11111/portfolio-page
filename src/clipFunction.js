@@ -1,4 +1,4 @@
-import {transformOriginProp, transformProp, shadowProp} from './getCSSProps.js';
+import {transformOriginProp, transformProp, shadowProp} from './getCSSProps';
 
 
 

@@ -1,13 +1,9 @@
-let parallaxElements = [];    
-for (let i=0; i<4; i++){
-    parallaxElements.push(document.getElementsByClassName('parallax')[i]);
-}
+let parallaxElements = document.getElementsByClassName('parallax');    
+let shadows = document.getElementsByClassName('shadow');
+let headerText = document.getElementsByClassName('header-text');
+let headerTextBorders = document.getElementsByClassName('header-border');
+let containers = document.getElementsByClassName('container');
     
-let shadows = [];
-for (let i=0; i<4; i++){
-    shadows.push(document.getElementsByClassName('shadow')[i]);
-}
-    
-export {parallaxElements, shadows};
+export {parallaxElements, shadows, headerText, headerTextBorders, containers};
     
 

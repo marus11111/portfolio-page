@@ -3,7 +3,7 @@ import {optionsTranslate3D, optionsClip} from './transformOptions';
 import {clipProp} from './getCSSProps';
 import {clipPath, initialClip, clip} from './clipFunction';
 import {mouseMoveHandler} from './mouseMoveHandler';
-import {setHeaderTextSize} from './setHeaderTextSize';
+//import {setHeading} from './setHeading';
     
      
 const headerEffect = () => {
@@ -11,7 +11,7 @@ const headerEffect = () => {
     let baseWidth = document.documentElement.clientWidth;
     let baseHeight = document.documentElement.clientHeight;
     
-    setHeaderTextSize(baseWidth, baseHeight);
+    //setHeading(baseWidth, baseHeight);
 
     if (/clippath/i.test(clipProp)){
         for (let i=0; i<parallaxElements.length; i++){
@@ -29,7 +29,7 @@ const headerEffect = () => {
         baseWidth = document.documentElement.clientWidth;
         baseHeight = document.documentElement.clientHeight;
         
-        setHeaderTextSize(baseWidth, baseHeight);
+        //setHeading(baseWidth, baseHeight);
         
         if (clipProp === 'clip'){
             for (let i=0; i<parallaxElements.length; i++){

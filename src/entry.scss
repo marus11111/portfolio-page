@@ -1,7 +1,7 @@
 $w: 'width';
 $h: 'height';
 
-@keyframes revealText {
+@keyframes revealElement {
     0% {
         opacity: 0;
     }
@@ -14,6 +14,7 @@ body, html {
     margin: 0;
     #{$h}: 100%; 
 }
+
 body{
     position:relative;
     overflow: hidden;
@@ -36,62 +37,84 @@ body{
     cursor: default;
     position: absolute;
     transition: opacity 1s linear, top 1s ease-out;
-    .parallax {
-        #{$w}: 100%;
-        #{$h}: 100%; 
-        position:absolute;
-        transition: transform 2s linear;
+}
+    
+.parallax {
+    #{$w}: 100%;
+    #{$h}: 100%; 
+    position:absolute;
+    transition: transform 2s linear;
+}
+    
+.shadow {
+    position: absolute;
+    transform-origin: 0% 0%;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    transition: transform 2s linear, box-shadow 1.5s ease-out;
+}
+    
+.heading{
+    position:absolute;
+    #{$w}: 100%;
+    text-align:center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    color: white;
+    &#name{
+        top: 20%; 
+        #{$h}: 8%;
+        animation: revealElement 2s;
+        font-weight: 100;
     }
-    .shadow {
-        position: absolute;
-        transform-origin: 0% 0%;
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
-        transition: transform 2s linear, box-shadow 1.5s ease-out;
-    }
-    .header-text{
-        position:absolute;
-        #{$w}: 100%;
-        text-align:center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-        color: white;
-        &#name{
-            top: 42%; 
-            #{$h}: 8%;
-            animation: revealText 2s;
-            font-weight: 100;
-        }
-        &#occupation{
-            top:50%;
-            #{$h}: 6%;
-            opacity: 0;
-            animation: revealText 2s 0.5s forwards; 
-            font-weight:400;
-        }
-    }
-    .header-border {
-        position: absolute;
-        box-sizing: border-box;
-        
-        &#left {
-            border-left: solid 2px rgba(255,255,255,0.0);
-            top: -25%;
-            transition: top 2s ease-out, border-color 2s linear;
-        }
-        &#right {
-            border-right: solid 2px rgba(255,255,255,0.0);
-            top: 125%;
-            transition: top 2s ease-out, border-color 2s linear;
-        }
-        &#top {
-            border-top: solid 2px rgba(255,255,255,0.0);
-            left:-100%;
-            transition: left 2s ease-out, border-color 2s linear;
-        }
-        &#bottom {
-            border-bottom: solid 2px rgba(255,255,255,0.0);
-            left: 200%;
-            transition: left 2s ease-out, border-color 2s linear;
-        }
+    &#occupation{
+        top:28%;
+        #{$h}: 6%;
+        opacity: 0;
+        animation: revealElement 2s 0.5s forwards; 
+        font-weight:400;
     }
 }
+
+.heading-border {
+    position: absolute;
+    box-sizing: border-box;
+    transition: top 2s ease-out, left 2s ease-out, border-color 2s linear;
+    &#left {
+        border-left: solid 2px rgba(255,255,255,0.0);
+        top: -25%; 
+    }
+    &#right {
+        border-right: solid 2px rgba(255,255,255,0.0);
+        top: 125%;
+    }
+    &#top {
+        border-top: solid 2px rgba(255,255,255,0.0);
+        left:-100%;
+    }
+    &#bottom {
+        border-bottom: solid 2px rgba(255,255,255,0.0);
+        left: 200%;
+    }
+}
+
+.header-nav {
+    position:absolute;
+    top:50%;
+    #{$w}:100%;
+    opacity:0;
+    animation:revealElement 2s 1s forwards;
+    color: white;
+    text-align: center;
+    font-weight:300;
+    ul {
+        list-style: none;
+        padding:0 0;
+        margin: 0 0;
+        li {
+            line-height: 200%;
+        }
+    }
+    
+    
+}
+
 

@@ -8,26 +8,25 @@ const translateZFunction = (element, shadow, translateZ) => {
     element.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;
 }
 
+const positionElements = (element, shadow, top, right, bottom, left) => {
+    shadow.style.top = `${top}%`;
+    shadow.style.left = `${left}%`;
+    shadow.style.width = `${100-left-right}%`;
+    shadow.style.height = `${100-top-bottom}%`;
+    element.style[transformOriginProp] = `${left}% ${top}%`;
+}
+
 const clipPath = (element, shadow, translateZ, top, right, bottom, left, property, timeout) => {
     setTimeout(() => {
-        shadow.style.top = `${top}%`;
-        shadow.style.left = `${left}%`;
-        shadow.style.width = `${100-left-right}%`;
-        shadow.style.height = `${100-top-bottom}%`;
-        element.style[transformOriginProp] = `${left}% ${top}%`;
+        positionElements(element, shadow, top, right, bottom, left);
         element.style[`${property}`] = `polygon(${left}% ${top}%, ${100-right}% ${top}%, ${100-right}% ${100-bottom}%, ${left}% ${100-bottom}%)`;
-        element.style
         translateZFunction(element, shadow, translateZ);
     }, timeout)
 }
   
 const clip = (element, shadow, top, right, bottom, left, property, width, height) => {
-    shadow.style.top = `${top}%`;
-    shadow.style.left = `${left}%`;
-    shadow.style.width = `${100-left-right}%`;
-    shadow.style.height = `${100-top-bottom}%`;
+    positionElements(element, shadow, top, right, bottom, left);
     element.style[`${property}`] = `rect(${top/100*height}px, ${width-right/100*width}px, ${height-bottom/100*height}px, ${left/100*width}px)`;
-    element.style[transformOriginProp] = `${left}% ${top}%`;
 }
 
 const initialClip = (element, shadow, translateZ, top, right, bottom, left, property, width, height, timeout) => {

@@ -1,9 +1,11 @@
 let parallaxElements = document.getElementsByClassName('parallax');    
 let shadows = document.getElementsByClassName('shadow');
-let heading = document.getElementsByClassName('heading');
-let headingBorders = document.getElementsByClassName('heading-border');
 let containers = document.getElementsByClassName('container');
+let headerMenu = [];
+for (let i=0; i<3; i++){
+    headerMenu.push(document.getElementsByTagName('li')[i]);
+}
     
-export {parallaxElements, shadows, heading, headingBorders, containers};
+export {parallaxElements, shadows, containers, headerMenu};
     
 

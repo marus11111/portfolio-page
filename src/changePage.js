@@ -7,26 +7,40 @@ for (let page=1; page<containers.length; page++){
     containers[page].style.top = '100%';
 }
     
-const changePageDown = () => {
-    containers[page].style.opacity = 0.5;
-    page++;
+const changePageDown = (number) => {
+    while (page < number){
+        containers[page].style.opacity = 0.5;
+        containers[page].style.top = 0;
+        page++; 
+    }
     containers[page].style.top = 0;
 }
     
-const changePageUp = () => {
-    containers[page].style.top = '100%';
-    page--;
+const changePageUp = (number) => {
+    while (page > number){
+        containers[page].style.top = '100%';
+        page--;
+    }
     containers[page].style.opacity = 1;
+}
+
+const changePage = (number) => {
+    if (number > page){
+        changePageDown(number);
+    }
+    else if (page > number){
+        changePageUp(number);
+    }
 }
 
 const mouseWheelHandler = (e) => {
     e.preventDefault();
     if(scroll){
         if (e.deltaY>0 && page<containers.length-1){
-            changePageDown();
+            changePage(page+1);
         }
         else if (e.deltaY<0 && page>0){
-            changePageUp();
+            changePage(page-1);
         }
         
         scroll = false;
@@ -37,16 +51,16 @@ const mouseWheelHandler = (e) => {
     } 
 }
     
-const keyDownHandler = (event) => {
-    let e = event || window.event;
+const keyDownHandler = (e) => {
     let k = e.keyCode || e.which;
+    
     if ((k==13 || k==32 || k==40 || k==39) && page<containers.length-1){                e.preventDefault();    
-       changePageDown();  
+       changePage(page+1);  
     }
-       else if ((k == 38 || k==37) && page>0){
+    else if ((k == 38 || k==37) && page>0){
        e.preventDefault();
-       changePageUp();  
-       }
+       changePage(page-1);
+    }
 }
     
-export {mouseWheelHandler, keyDownHandler};
+export {mouseWheelHandler, keyDownHandler, changePage};

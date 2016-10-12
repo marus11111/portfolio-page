@@ -27,8 +27,13 @@ body {
     position:relative;
     font-family: 'Lato', sans-serif;
     color: white;
+    font-size: 1.5em;
     font-size: 3vh;
+    @media screen and (orientation: portrait) and (min-width: 600px), screen and (orientation: landscape) and (max-height: 599px){
+        font-size: 3vw;
+    }
     line-height: 1;
+    overflow: hidden;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -70,6 +75,15 @@ table {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes hide-before-revealing {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -131,30 +145,23 @@ table {
 
 @keyframes top-left-corner{
     0% {
-        opacity: 0;
-        left: -1.25em;
-        top: -1.25em;
-    }
-    100% {
-        opacity: 1;
-        left: 0;
-        top: 0;
+        transform: translate(-100%, -100%);
     }
 }
 
 @keyframes bottom-right-corner{
-    0% {
-        opacity: 0;
-        left: 21em;
-        top: 1.25em;
-    }
     100% {
-        opacity: 1;
-        left: 19.75em;
-        top: 0;
+        transform: translate(-100%, -100%);
     }
 }
 
+@keyframes logos {
+    0% {
+        transform: rotateY(180deg);
+    }
+    100% {
+    }
+}
 
 
 
@@ -171,196 +178,266 @@ table {
         }
 }
 
-
-
-
-
-.container {
+.container, .no-js-container{
+    position:absolute;
     width: 100%;
-    height: 100%;
     cursor: default;
+    overflow: hidden;
     transition: opacity 1s linear, top 1s ease-out;
-    text-align: center;
-    .parallax {
-        width: 100%;
-        height: 100%; 
-        position:absolute;
-        transition: transform 2s linear;
+    text-align: center;   
+}
+
+.container{
+   height: 100%; 
+}
+
+
+.parallax {
+    width: 100%;
+    height: 100%; 
+    position:absolute;
+    transition: transform 2s linear;
+}
+.shadow {
+    position: absolute;
+    transform-origin: 0% 0%;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    transition: transform 2s linear, box-shadow 1.5s ease-out;
+}
+
+
+#scroll-arrow {
+    position:relative;
+    margin: 0 auto;
+    top: 90%;
+    height: 5%;
+    width: 5%;
+    background:{
+        image: url($arrow1);
+        position: center;
+        repeat: no-repeat;
+        size: contain;
     }
-    .shadow {
+    animation: hide-before-revealing 1s, reveal-element 2s 1s, slide-from-top 2s 1s ease-in;
+} 
+
+
+.heading {
+    position:relative;
+    margin: 0 auto;
+    top: 20%;
+    width: 17.6em;
+    height: 6em;
+    text-align:center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+    animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
+    #name{
+        font-size: 2em;
+        line-height: 1.6em;
+        animation: reveal-element 2s linear;
+        font-weight: 100;
+    }
+    #occupation{
+        font-size: 1.6em;
+        line-height: 1.3em;
+        animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear; 
+        font-weight:400;
+    }
+
+    .heading-border {
         position: absolute;
-        transform-origin: 0% 0%;
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
-        transition: transform 2s linear, box-shadow 1.5s ease-out;
-    }
-    
-    #scroll-arrow-container{
-        position:absolute;
-        top: 90%;
-        left: 50%;
-        #scroll-arrow {
-            position:relative;
-            left:-50%;
-            height: 10vh;
-            width: 10vh;
-            background:{
-                image: url($arrow1);
-                position: center;
-                repeat: no-repeat;
-                size: contain;
-            }
-            opacity: 0;
-            animation:reveal-element 2s 1s forwards, slide-from-top 2s 1s ease-in;
-        } 
-    }
-    
-    .heading {
-        position:relative;
-        margin: 0 auto;
-        top: 7em;
+        box-sizing: border-box;
         width: 17.6em;
         height: 6em;
-        text-align:center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
-        animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
-        #name{
-            font-size: 2em;
-            line-height: 1.6em;
-            animation: reveal-element 2s linear;
-            font-weight: 100;
+        &#left {
+            border-left: solid 2px white;
+            animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
         }
-        #occupation{
-            font-size: 1.6em;
-            line-height: 1.3em;
-            opacity: 0;
-            animation: reveal-element 2s 0.5s linear forwards; 
-            font-weight:400;
+        &#right {
+            border-right: solid 2px white;
+            animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
         }
-   
-        .heading-border {
-            position: absolute;
-            box-sizing: border-box;
-            width: 17.6em;
-            height: 6em;
-            &#left {
-                border-left: solid 2px white;
-                animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
-            }
-            &#right {
-                border-right: solid 2px white;
-                animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
-            }
-            &#top {
-                border-top: solid 2px white;
-                animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
-            }
-            &#bottom {
-                border-bottom: solid 2px white;
-                animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
-            }
+        &#top {
+            border-top: solid 2px white;
+            animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
+        }
+        &#bottom {
+            border-bottom: solid 2px white;
+            animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
+        }
+    }
+}
+
+
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:65%;
+    width: 21em;
+    height: 2.5em;
+    text-align: center;
+    font-weight:300;
+    background: rgba(0,0,0,0.6);
+    animation:hide-before-revealing 2s, reveal-element 2s 2s;
+    li {
+    float: left;
+    box-sizing: border-box;
+    width: 7em;
+    height: 1em;
+    padding: 0 1em;
+    margin-top: 0.75em;
+    line-height: 1em;
+    border-right: solid 1px white;
+    &#contact-menu {
+        border: none; 
+    }
+    &#home {
+        float: none;
+        position: absolute;
+        height: 3em;
+        width: 3em;
+        background: {
+            image: url($home);
+            position: center;
+            repeat: no-repeat;
+            size: contain;
+            } 
+        border: none;
+        top: -5em;
+        left: 9em;
+        display: none;//inline;
         }
     }  
 }
 
-#nav-container {
-    display:block;
-    position:absolute;
-    left:50%;
-    top: 21em;
-    nav {
-        position: relative;
-        left: -50%;
-        width: 21em;
-        height: 2.5em;
-        text-align: center;
-        font-weight:300;
-        background: rgba(0,0,0,0.6);
-        opacity:0;
-        animation:reveal-element 2s 2s forwards;
-            li {
-            float: left;
-            box-sizing: border-box;
-            width: 7em;
-            height: 1em;
-            padding: 0 1em;
-            margin-top: 0.75em;
-            line-height: 1em;
-            border-right: solid 1px white;
-            &#contact-menu {
-                border: none; 
-            }
-            &#home {
-                float: none;
-                position: absolute;
-                height: 3em;
-                width: 3em;
-                background: {
-                    image: url($home);
-                    position: center;
-                    repeat: no-repeat;
-                    size: contain;
-                    } 
-                border: none;
-                top: -5em;
-                left: 9em;
-                display: none; //inline;
-                }
-            }
-        
-        .menu-corner {
-            height: 1.25em;
-            width: 1.25em;
-            opacity: 0;
-            box-sizing: border-box;
-            position: relative;
-            &#top-left {
-                border-top: solid 2px white;
-                border-left: solid 2px white;
-                animation: top-left-corner 1s 2.5s ease-out forwards;
-            }
-            &#bottom-right {
-                left: 19.75em;
-                border-bottom: solid 2px white;
-                border-right: solid 2px white;
-                animation: bottom-right-corner 1s 2.5s ease-out forwards;
-            }
+.corner {
+    height: 1.25em;
+    width: 1.25em;
+    box-sizing: border-box;
+    position: absolute;
+    &.top-left {
+        border-top: solid 2px white;
+        border-left: solid 2px white;
+        &#nav-top-left{
+            animation: hide-before-revealing 2.5s, top-left-corner 1s 2.5s ease-out;
+        }
+        &#about-top-left{
+            animation: hide-before-revealing 1s, top-left-corner 1s 1s ease-out;
         }
     }
+    &.bottom-right {
+        top:100%;
+        left: 100%;
+        border-bottom: solid 2px white;
+        border-right: solid 2px white;
+        &#nav-bottom-right{
+            animation: hide-before-revealing 2.5s, bottom-right-corner 1s 2.5s ease-out forwards;  
+        }
+        &#about-bottom-right{
+            animation: hide-before-revealing 1s, bottom-right-corner 1s 1s ease-out forwards;
+        }
+    }
+    
 }
+
+
 
 .section-heading {
     font-weight: 400;
+    position: relative;
+    margin: 0 auto;
+    height: 2.5em;
+    line-height: 2.5em;
+    &#about-heading {
+        width: 5em;
+    }
 }
+
+
  
 #about-container{
     position: relative;
-    background-color: rgb(255,240,170);
-    background-image: linear-gradient(top left, rgb(170,150, 57), rgb(255,240,170));
-    background-image: linear-gradient(to bottom right,rgb(170,150, 57), rgb(255,240,170));
+    background: {
+        color: rgb(255,240,170);
+        image: linear-gradient(top left, rgb(170,150, 57), rgb(255,240,170));
+        image: linear-gradient(to bottom right,rgb(170,150, 57), rgb(255,240,170));
+    }
     line-height: 1.7em;
     font-weight: 300;
     
+    #about-text-logos-wrapper{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 44em; 
+        @media screen and (orientation: portrait) {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 44em;
+            width: 100%;
+        }
+        @media screen and (max-width:599px), screen and (max-height: 599px){
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
     #about{
-        position:absolute;
-        width: 40%;
-        height: 90%;
-        top:5%;
-        left: 30%;
-        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-        background-color: rgb(46, 67,114);
-        background-image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
-        background-image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
-        padding: 2em 2em;
+        position:relative;
+        margin: 0 auto;
+        padding: 1.5em 2em;
         box-sizing:border-box;
+        top: 5%;
+        width: 25em;
+        height: 30em; 
+        @media screen and (orientation: portrait) {
+            width: 30em;
+            height: 25em;
+        }
+        @media screen and (max-width:599px), screen and (max-height: 599px){
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0 0.5em;
+            #about-heading {
+                top: 3%;
+                width: 5em;
+            }
+        }
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+        background: {
+            color: rgb(46, 67,114);
+            image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
+            image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
+        }
+        animation: reveal-element 1s;
+        #about-text {
+            position: relative;
+            top: 50%;
+            transform: translateY(-56%);
+        }
     }
     
     .logo{
         position:absolute;
         width: 7%;
+        @media screen and (orientation: portrait){
+            width: 10%;
+        }
+        backface-visibility: hidden;
+        animation: logos 2s;
     }
     .logo-bigger{
         position:absolute;
         width: 14%;
+        @media screen and (orientation: portrait){
+            width: 20%;
+        }
+        backface-visibility: hidden;
+        animation: logos 2s;
     }
     .aspect-ratio-padding{
         padding-bottom: 80%;
@@ -372,74 +449,174 @@ table {
     #css{
         @include sprite-bg(0);
         top: 16%;
-        left: 6.5%;
+        left: 1.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 14%;
+        }
     }
     #webpack{
         @include sprite-bg(7.142857%);
         top: 54%;
-        left: 76.5%;
+        left: 81.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 26%;
+        }
     }
     #karma{
         @include sprite-bg(14.285714%);
         top: 35%;
-        left: 6.5%;
+        left: 1.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 38%;
+        }
     }
     #sass{
         @include sprite-bg(21.428571%);
         top: 35%;
-        left: 16.5%;
+        left: 11.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 50%;
+        }
     }
     #react{
         @include sprite-bg(28.571429%);
         top: 54%;
-        left: 86.5%;
+        left: 91.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 62%;
+        }
     }
     #photoshop{
         @include sprite-bg(35.714286%);
         top: 54%;
-        left: 16.6%;
+        left: 11.5%;
+        @media screen and (orientation: portrait){
+            top: 65%;
+            left: 74%;
+        }
     }
     #mocha{
         @include sprite-bg(42.857143%);
         top: 73%;
-        left: 11.5%;
+        left: 6.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 14%;
+        }
     }
     #js{
         @include sprite-bg(50%);
         top: 16%;
-        left: 76.5%;
+        left: 91.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 26%;
+        }
     }
     #html{
         @include sprite-bg(57.142857%);
         top: 16%;
-        left: 86.5%;
+        left: 81.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 38%;
+        }
     }
     #chai{
         @include sprite-bg(64.285714%);
         top: 35%;
-        left: 76.5%;
+        left: 81.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 50%;
+        }
     }
     #bootstrap{
         @include sprite-bg(71.428571%);
         top: 35%;
-        left: 86.5%;
+        left: 91.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 62%;
+        }
     }
     #jquery{
         @include sprite-bg(78.571429%);
         top: 16%;
-        left: 16.5%;
+        left: 11.5%;
+        @media screen and (orientation: portrait){
+            top: 75%;
+            left: 74%;
+        }
     }
     #babel{
         @include sprite-bg(92.307692%);
         top: 73%;
-        left: 78%;
+        left: 83.5%;
+        @media screen and (orientation: portrait){
+            top: 85%;
+            left: 44%;
+        }
     }
     #git{
         @include sprite-bg(100%);
         top: 54%;
-        left: 6.5%;
+        left: 1.5%;
+        @media screen and (orientation: portrait){
+            top: 85%;
+            left: 32%;
+        }
     }
 } 
+
+.project-container {
+    background: {
+        color: rgb(46, 67,114);
+        image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
+        image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
+    }
+    .projects{
+        position: relative;
+        top: 10%;
+        left: 10%;
+        width: 60%;
+        Height: 60%;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
+        background: {
+            color: rgb(46, 67,114);
+            image: linear-gradient(top left, rgb(46, 67,114), rgb(119,136,170));
+            image: linear-gradient(to bottom right,rgb(46, 67,114), rgb(119,136,170));
+        }
+    }
+    .device-mockups {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 30%;
+        left: 50%;
+        transition: opacity 1s, top 1s, left 1s;
+        background:{
+            position: center;
+            size: contain;
+            repeat: no-repeat;
+            image: url(../pics/mockup-2.png);
+        }    
+    }
+}
+
+#contact-container {
+    background: {
+        color: rgb(255,240,170);
+        image: linear-gradient(top right, rgb(170,150, 57), rgb(255,240,170));
+        image: linear-gradient(to bottom left,rgb(170,150, 57), rgb(255,240,170));
+    }
+}
+
 
 
 

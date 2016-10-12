@@ -1,7 +1,7 @@
 import './entry.scss';
 import {headerEffect} from './headerEffect';
 import {mouseWheelHandler, keyDownHandler, changePage} from './changePage';
-import {headerMenu} from './getDOMElements';
+import {menuItems} from './getDOMElements';
 
 {
   
@@ -10,10 +10,9 @@ import {headerMenu} from './getDOMElements';
     window.addEventListener('wheel', mouseWheelHandler);
     window.addEventListener('keydown', keyDownHandler);
     
-    for (let i=0; i<headerMenu.length; i++){
-        headerMenu[i].addEventListener('click', ()=>{
-            changePage(i+1);
+    for (let i=0; i<menuItems.length; i++){
+        menuItems[i].addEventListener('click', ()=>{
+            changePage(i);
         });
     }
-
 }

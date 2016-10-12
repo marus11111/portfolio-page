@@ -1,11 +1,9 @@
 let parallaxElements = document.getElementsByClassName('parallax');    
 let shadows = document.getElementsByClassName('shadow');
 let containers = document.getElementsByClassName('container');
-let headerMenu = [];
-for (let i=0; i<3; i++){
-    headerMenu.push(document.getElementsByTagName('li')[i]);
-}
+let menuItems = document.getElementsByTagName('li');
+let deviceMockups = document.getElementsByClassName('device-mockups');
     
-export {parallaxElements, shadows, containers, headerMenu};
+export {parallaxElements, shadows, containers, menuItems, deviceMockups};
     
 

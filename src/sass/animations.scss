@@ -1,0 +1,161 @@
+@keyframes reveal-element {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide-before-revealing {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-from-top {
+    0% {
+        transform: translateY(-100%);    
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-from-bottom {
+    0% {
+        transform: translateY(100%);    
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-from-right {
+    0% {
+        transform: translateX(100%);    
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-from-left {
+    0% {
+        transform: translateX(-100%);    
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes heading-background {
+    0% {
+        background-color: rgba(0,0,0,0.0);
+        
+    }
+    100% {
+        background-color: rgba(0,0,0,0.6);
+    }
+}
+
+@keyframes heading-shadow {
+    0% {
+        box-shadow: inset 0 0 0 0 rgba(0,0,0,0.0);
+        
+    }
+    100% {
+        box-shadow: inset 0 0 0.4em 0.1em rgba(0,0,0,0.9);
+    }
+}
+
+@keyframes top-left-corner{
+    0% {
+        transform: translate(-100%, -100%);
+    }
+}
+
+@keyframes bottom-right-corner{
+    0% {
+        transform: translate(100%, 100%);
+    }
+}
+
+@keyframes logos {
+    0% {
+        transform: rotateY(180deg);
+    }
+    100% {
+    }
+}
+
+.repeating-animations {
+    .corner {
+        &#about-top-left, &#contact-top-left{
+            animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, top-left-corner 1s 0.2s ease-out;
+        }
+        &#about-bottom-right, &#contact-bottom-right{
+            animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, bottom-right-corner 1s 0.2s ease-out;
+        }
+    }
+    #scroll-arrow-icon {
+        animation: hide-before-revealing 1s, reveal-element 2s 1s, slide-from-top 2s 1s ease-in;
+    }
+    #about-text {
+        animation: reveal-element 1s;
+    }
+    .logo, .logo-bigger {
+        animation: logos 2s;
+    }
+    #email{
+        animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+    }
+    #phone {
+        animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+    }
+    #linkedin{
+        animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+    }
+}
+
+.header-heading {
+    animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
+}
+
+#name{
+    animation: reveal-element 2s linear;
+}
+
+#occupation{
+    animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear;
+}
+
+.header-heading-border {
+    &#left {
+        animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
+    }
+    &#right {
+        animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
+    }
+    &#top {
+        animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
+    }
+    &#bottom {
+        animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
+    }
+}
+
+nav {
+    animation:hide-before-revealing 2s, reveal-element 2s 2s;
+}
+
+#nav-top-left-corner{
+    animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
+}
+
+#nav-bottom-right-corner{
+    animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
+}

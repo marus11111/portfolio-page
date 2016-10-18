@@ -1,6 +1,4 @@
-import {transformOriginProp, transformProp, shadowProp} from './getCSSProps';
-
-
+import {transformOriginProp, transformProp, shadowProp} from '../helpers/getCSSProps';
 
 const translateZFunction = (element, shadow, translateZ) => {
     shadow.style[transformProp] = `perspective(1000px) translateZ(${translateZ}px)`;

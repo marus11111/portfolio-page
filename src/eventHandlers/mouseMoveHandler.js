@@ -1,4 +1,4 @@
-import {transitionProp, transformProp} from './getCSSProps';
+import {transitionProp, transformProp} from '../helpers/getCSSProps';
 
 const mouseMoveHandler = (element, shadow, speedX, speedY, translateZ, mouseX, mouseY) => {
         element.style[transitionProp] = 'none';

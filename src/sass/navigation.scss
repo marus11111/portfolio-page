@@ -63,19 +63,26 @@ nav {
     }
 }
 
-#menu-exit-icon {
+#menu-exit-button {
     display: none;
+    border: none;
     opacity: 0;
+    cursor: pointer;
     position: absolute;
     top: 2%;
     right: 2%;
-    width: 1.6em;
-    height: 1.6em;
+    width: 2em;
+    height: 2em;
+    outline: none;
     background: {
+        color: transparent;
         image: url($exit);
         size: contain;
         repeat: no-repeat;
         position: center;
+    }
+    &:hover {
+        transform: scale(1.05);
     }
 }
 

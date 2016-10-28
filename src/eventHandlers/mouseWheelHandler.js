@@ -36,4 +36,4 @@ const mouseWheelHandler = (e) => {
     } 
 }
 
-export {mouseWheelHandler};
+window.addEventListener('wheel', mouseWheelHandler);

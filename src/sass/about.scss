@@ -78,10 +78,7 @@
         width: 7%;
     }
     backface-visibility: hidden;
-    background:{
-        image: url(../../pics/sprite-blue.png);
-        size: cover;
-    }
+    overflow:hidden;
 }
 
 .logo-bigger{
@@ -91,10 +88,7 @@
         width: 14%;
     }
     backface-visibility: hidden;
-    background:{
-        image: url(../../pics/sprite-blue.png);
-        size: cover;
-    }
+    overflow:hidden;
 }
 
 .logo-aspect-ratio-padding{
@@ -106,141 +100,169 @@
 }
 
 #css{
-    background-position:0;
     top: 65%;
     left: 14%;
     @media screen and (orientation: landscape){
         top: 16%;
         left: 1.5%;
     }
+    img{
+        left: 0;
+    }
 }
 
 #webpack{
-    background-position:7.142857%;
     top: 65%;
     left: 26%;
     @media screen and (orientation: landscape){
         top: 54%;
         left: 81.5%;
     }
+    img{
+        left: -100%;
+    }
 }
 
 #karma{
-    background-position:14.285714%;
     top: 65%;
     left: 38%;
     @media screen and (orientation: landscape){
         top: 35%;
         left: 1.5%;
     }
+    img{
+        left: -200%;
+    }
 }
 
 #sass{
-    background-position:21.428571%;
     top: 65%;
     left: 50%;
     @media screen and (orientation: landscape){
         top: 35%;
         left: 11.5%;
     }
+    img{
+        left: -300%;
+    }
 }
 
 #react{
-    background-position:28.571429%;
     top: 65%;
     left: 62%;
     @media screen and (orientation: landscape){
         top: 54%;
         left: 91.5%;
     }
+    img{
+        left: -400%;
+    }
 }
 
 #photoshop{
-    background-position:35.714286%;
     top: 65%;
     left: 74%;
     @media screen and (orientation: landscape){
         top: 54%;
         left: 11.5%;
     }
+    img{
+        left: -500%;
+    }
 }
 
 #mocha{
-    background-position:42.857143%;
     top: 75%;
     left: 14%;
     @media screen and (orientation: landscape){
         top: 73%;
         left: 6.5%;
     }
+    img{
+        left: -600%;
+    }
 }
 
 #js{
-    background-position:50%;
     top: 75%;
     left: 26%;
     @media screen and (orientation: landscape){
         top: 16%;
         left: 91.5%;
     }
+    img{
+        left: -700%;
+    }
 }
 
 #html{
-    background-position:57.142857%;
     top: 75%;
     left: 38%;
     @media screen and (orientation: landscape){
         top: 16%;
         left: 81.5%;
     }
+    img{
+        left: -800%;
+    }
 }
 
 #chai{
-    background-position:64.285714%;
     top: 75%;
     left: 50%;
     @media screen and (orientation: landscape){
         top: 35%;
         left: 81.5%;
     }
+    img{
+        left: -900%;
+    }
 }
 
 #bootstrap{
-    background-position:71.428571%;
     top: 75%;
     left: 62%;
     @media screen and (orientation: landscape){
         top: 35%;
         left: 91.5%;
     }
+    img{
+        left: -1000%;
+    }
 }
 
 #jquery{
-    background-position:78.571429%;
     top: 75%;
     left: 74%;
     @media screen and (orientation: landscape){
         top: 16%;
         left: 11.5%;
     }
+    img{
+        left: -1100%;
+    }
 }
 
 #babel{
-    background-position:92.307692%;
     top: 85%;
     left: 44%;
     @media screen and (orientation: landscape){
         top: 73%;
         left: 83.5%;
     }
+    img{
+        left: -600%;
+    }
 }
 
 #git{
-    background-position:100%;
     top: 85%;
     left: 32%;
     @media screen and (orientation: landscape){
         top: 54%;
         left: 1.5%;
+    }
+    img{
+        left: -1400%;
     }
 }

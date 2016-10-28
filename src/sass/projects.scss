@@ -63,19 +63,22 @@
         width: 100vh;
     }
     transform: translateX(-50%);
-    transition: opacity 1s, top 1s, left 1s;
-    background:{
-        size: cover;
-        image: url(../../pics/mockup-2.png);
-    }
+    transition: opacity 2s, top 1s, left 1s;
+    overflow: hidden;
     &#device-mockup-project1 {
-        background-position: 0;
+        img {
+            left: 0;
+        }
     }
     &#device-mockup-project2 {
-        background-position: 50%;
+        img {
+            left: -100%;
+        }
     }
     &#device-mockup-project3 {
-        background-position: 100%;
+        img {
+            left: -200%;
+        }
     }
 }
 

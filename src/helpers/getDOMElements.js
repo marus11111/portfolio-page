@@ -8,7 +8,7 @@ let menuItems = makeArray(document.getElementsByClassName('menu-item'));
 let menuUl = document.getElementsByTagName('nav')[0].getElementsByTagName('ul')[0];
 let floatedMenuElements = makeArray(document.getElementsByClassName('menu-float'));
 let menuArrow = document.getElementById('menu-arrow-icon');
-let menuExit = document.getElementById('menu-exit-icon');
+let menuExit = document.getElementById('menu-exit-button');
 let projectText = makeArray(document.getElementsByClassName('project-text'));
 let deviceMockups = makeArray(document.getElementsByClassName('device-mockups'));
 

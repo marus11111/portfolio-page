@@ -42,4 +42,4 @@ const keyDownHandler = (e) => {
     
 }
 
-export {keyDownHandler};
+window.addEventListener('keydown', keyDownHandler);

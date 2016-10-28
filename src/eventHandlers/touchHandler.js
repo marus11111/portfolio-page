@@ -71,4 +71,6 @@ const touchEnd = (e) => {
     }
 }
 
-export {touchStart, touchMove, touchEnd};
+window.addEventListener('touchstart', touchStart);
+window.addEventListener('touchmove', touchMove);
+window.addEventListener('touchend', touchEnd);

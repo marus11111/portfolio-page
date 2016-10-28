@@ -1,12 +1,15 @@
 import {menuUl, menu, menuItems, menuArrow, menuExit, containers} from '../helpers/getDOMElements';
-import {filterProp} from '../helpers/getCSSProps';
+import CSSProps from '../helpers/getCSSProps';
 import {resizeMenu, resizeMinimizedMenu} from './resizeMenu';
 import {page} from './changePage';
+
+const {filter} = CSSProps;
 
 let menuOnPage = false;
 
 const hideMenu = () => {
     menu.style.color = 'rgba(255, 255, 255, 0)';
+    menu.style.cursor = 'pointer';
     menuUl.style.opacity = 0;
     menuItems[0].style.opacity = 0;
     setTimeout(() => {
@@ -16,8 +19,8 @@ const hideMenu = () => {
         menuExit.style.display = 'none';
         menuArrow.style.display = 'block';
         menuArrow.style.opacity = 1;
-        if (filterProp){
-            containers[page].style[filterProp] = 'none';  
+        if (filter){
+            containers[page].style[filter] = 'none';  
         }
         else {
             containers[page].style.opacity = 1;
@@ -27,6 +30,7 @@ const hideMenu = () => {
 }
 
 const showMenu = () => {
+    menu.style.cursor = 'default';
     menuArrow.style.opacity = 0;
     resizeMenu();
     setTimeout(() => {
@@ -46,13 +50,15 @@ const showMenuOnArrow = () => {
         menuItems[0].style.display = 'block';
         menuItems[0].style.opacity = 1;
     },400);
-    if (filterProp){
-        containers[page].style[filterProp] = 'blur(5px) brightness(0.5)';  
+    if (filter){
+        containers[page].style[filter] = 'blur(5px) brightness(0.5)';  
     }
     else {
         containers[page].style.opacity = 0.2;
     }
 }
 
+menuExit.addEventListener('click', hideMenu);
+menuArrow.addEventListener('click', showMenuOnArrow);
 
 export {hideMenu, showMenu, showMenuOnArrow, menuOnPage};

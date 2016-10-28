@@ -94,10 +94,10 @@
 
 .repeating-animations {
     .corner {
-        &#about-top-left, &#contact-top-left{
+        &.top-left:not(#nav-top-left-corner) {
             animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, top-left-corner 1s 0.2s ease-out;
         }
-        &#about-bottom-right, &#contact-bottom-right{
+        &.bottom-right:not(#nav-bottom-right-corner) {
             animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, bottom-right-corner 1s 0.2s ease-out;
         }
     }

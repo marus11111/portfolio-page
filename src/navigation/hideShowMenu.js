@@ -31,10 +31,10 @@ const hideMenu = () => {
 
 const showMenu = () => {
     menu.style.cursor = 'default';
+    menuArrow.style.display = 'none';
     menuArrow.style.opacity = 0;
     resizeMenu();
     setTimeout(() => {
-        menuArrow.style.display = 'none';
         menuUl.style.display = 'block';
         menuUl.style.opacity = 1;
         menu.style.color = 'rgba(255, 255, 255, 1)';
@@ -54,7 +54,7 @@ const showMenuOnArrow = () => {
         containers[page].style[filter] = 'blur(5px) brightness(0.5)';  
     }
     else {
-        containers[page].style.opacity = 0.2;
+        containers[page].style.opacity = 0.4;
     }
 }
 

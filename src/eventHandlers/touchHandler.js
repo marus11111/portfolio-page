@@ -3,20 +3,18 @@ import {showMenuOnArrow, hideMenu, menuOnPage} from '../navigation/hideShowMenu'
 import {changePage, page} from '../navigation/changePage';
 import {changeProject, project} from '../navigation/changeProject';
 
-
 let startX;
 let startY;
 let target;
+let evt = document.createEvent('MouseEvent');
+evt.initEvent('click', false, true);
 
 const touchStart = (e) => {
+    e.preventDefault();
     let touch = e.touches[0];
     startX = touch.pageX;
     startY = touch.pageY;
     target = e.target;
-}
-
-const touchMove = (e) => {
-    e.preventDefault;
 }
 
 const touchEnd = (e) => {
@@ -38,14 +36,18 @@ const touchEnd = (e) => {
            else {
            return 0;
            }
-    })();  
-    if (menuOnPage){
+    })();
+
+    if (Math.abs(verticalChange) < 5 && Math.abs(horizontalChange) < 5){
+        target.dispatchEvent(evt); 
+    }
+    else if (menuOnPage){
         if (verticalChange > 50){
             hideMenu();
         }
     }
     else if (target == menuArrow) {
-        if (verticalChange < -50 || (verticalChange == 0 && horizontalChange == 0)){
+        if (verticalChange < -50) {
            showMenuOnArrow(); 
         }
     }
@@ -71,6 +73,15 @@ const touchEnd = (e) => {
     }
 }
 
-window.addEventListener('touchstart', touchStart);
-window.addEventListener('touchmove', touchMove);
-window.addEventListener('touchend', touchEnd);
+window.addEventListener('touchstart', (event) => {
+    let e = event || window.event;
+    if(e.touches.length == 1){
+        touchStart(e); 
+    }
+});
+window.addEventListener('touchend', (event) => {
+    let e = event || window.event;
+    if(e.changedTouches.length == 1){
+        touchEnd(e); 
+    }
+});

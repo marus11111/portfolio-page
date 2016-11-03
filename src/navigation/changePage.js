@@ -5,9 +5,6 @@ import {removeClass} from '../helpers/removeClass';
 let page = 0;
 
 const changePageDown = (number) => {
-    if (page==0){
-        hideMenu();    
-    }
     while (number > page){
         containers[page].style.opacity = 0;
         containers[page].style.top = 0;
@@ -26,7 +23,6 @@ const changePageUp = (number) => {
 }
 
 const changePage = (number) => {
-    
     removeClass(containers[page], 'repeating-animations');
     hideMenu(); 
     

@@ -6,8 +6,19 @@ import {changeProject, project} from '../navigation/changeProject';
 let startX;
 let startY;
 let target;
-let evt = document.createEvent('MouseEvent');
-evt.initEvent('click', false, true);
+let clickEvent;
+
+if(typeof MouseEvent == 'function'){
+    clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+    }); 
+}
+else {
+    clickEvent = document.createEvent('MouseEvent');
+    clickEvent.initEvent('click', false, true);  
+}
 
 const touchStart = (e) => {
     e.preventDefault();
@@ -22,7 +33,7 @@ const touchEnd = (e) => {
     let x = touch.pageX;
     let y = touch.pageY;
     let verticalChange = (() => {
-        if(Math.abs(y - startY) > Math.abs(x-startX)){
+        if(Math.abs(y - startY) > 50 && (Math.abs(y - startY) > Math.abs(x-startX))){
             return y-startY;
         }
         else {
@@ -30,45 +41,45 @@ const touchEnd = (e) => {
         }
     })();
     let horizontalChange = (() => {
-        if(Math.abs(x - startX) > Math.abs(y - startY)){
-           return x-startX
-           }
-           else {
+        if(Math.abs(x - startX) > 50 && (Math.abs(x - startX) > Math.abs(y - startY))){
+           return x-startX;
+        }
+        else {
            return 0;
-           }
+        }
     })();
 
-    if (Math.abs(verticalChange) < 5 && Math.abs(horizontalChange) < 5){
-        target.dispatchEvent(evt); 
+    if (verticalChange == 0 && horizontalChange == 0){
+        target.dispatchEvent(clickEvent); 
     }
     else if (menuOnPage){
-        if (verticalChange > 50){
+        if (verticalChange > 0){
             hideMenu();
         }
     }
     else if (target == menuArrow) {
-        if (verticalChange < -50) {
+        if (verticalChange < 0) {
            showMenuOnArrow(); 
         }
     }
     else if (page == 2){
-        if (project < 2 && (verticalChange < -50 || horizontalChange < -50)) {
+        if (project < 2 && (verticalChange < 0 || horizontalChange < 0)) {
             changeProject(project+1);
         }
-        else if (project > 0 && (verticalChange > 50 || horizontalChange > 50)){
+        else if (project > 0 && (verticalChange > 0 || horizontalChange > 0)){
             changeProject(project-1);
         }
-        else if (project == 2 && (verticalChange < -50 || horizontalChange < -50)){
+        else if (project == 2 && (verticalChange < 0 || horizontalChange < 0)){
             changePage(page+1);
         }
-        else if (project == 0 && (verticalChange > 50 || horizontalChange > 50)){
+        else if (project == 0 && (verticalChange > 0 || horizontalChange > 0)){
             changePage(page-1);
         }
     }
-    else if (verticalChange < -50 && page < containers.length-1){
+    else if (verticalChange < 0 && page < containers.length-1){
         changePage(page+1);
     }
-    else if (verticalChange > 50 && page > 0){
+    else if (verticalChange > 0 && page > 0){
         changePage(page-1)
     }
 }

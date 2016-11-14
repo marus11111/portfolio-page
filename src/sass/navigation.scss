@@ -3,21 +3,23 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     transition: color 0.25s, opacity 0.25s, width 0.25s, height 0.25s, top 0.4s;
-    top:60%;
-    width: 21em;
+    top:65%;
+    width: 24em;
     height: 2.5em;
     @media screen and (orientation: portrait) {
         font-size: 1.2em;
-        top: 55%;
+        top: 50%;
         width: 7em;
-        height: 7.3em;
+        height: 9.3em;
     }
     text-align: center;
-    font-weight:300;
     background: rgba(0,0,0,0.6);
     li {
         box-sizing: border-box;
         width: 7em;
+        @media screen and (orientation: landscape) {
+            width: 6em;
+        }
         height: 1em;
         padding: 0 1em;
         margin-top: 1em;

@@ -5,11 +5,11 @@ import {menuItems} from '../helpers/getDOMElements';
 menuItems.forEach((menuItem, i) => {
     menuItem.addEventListener('click', (e)=>{
         e.preventDefault();
-        if (i<=2) {
+        if (i<=3) {
             changeProject(0);
         }
-        else if (i==3) {
-            changeProject(2);
+        else if (i==4) {
+            changeProject(1);
         }
         changePage(i);
     });

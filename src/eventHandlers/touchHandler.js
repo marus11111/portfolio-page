@@ -62,14 +62,14 @@ const touchEnd = (e) => {
            showMenuOnArrow(); 
         }
     }
-    else if (page == 2){
-        if (project < 2 && (verticalChange < 0 || horizontalChange < 0)) {
+    else if (page == 3){
+        if (project < 1 && (verticalChange < 0 || horizontalChange < 0)) {
             changeProject(project+1);
         }
         else if (project > 0 && (verticalChange > 0 || horizontalChange > 0)){
             changeProject(project-1);
         }
-        else if (project == 2 && (verticalChange < 0 || horizontalChange < 0)){
+        else if (project == 1 && (verticalChange < 0 || horizontalChange < 0)){
             changePage(page+1);
         }
         else if (project == 0 && (verticalChange > 0 || horizontalChange > 0)){

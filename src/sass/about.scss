@@ -1,5 +1,4 @@
 #about{
-    position: relative;
     background: {
         color: rgb(255,240,170);
         image: linear-gradient(top left, rgb(170,150, 57), rgb(255,240,170));
@@ -8,42 +7,20 @@
     line-height: 1.7em;
 }
     
-#about-text-logos-wrapper{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 100%;
-    width: 100%;
-    @media screen and (orientation: landscape) {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        @media (min-height: 600px){
-            width: 44em;
-        }
-    }
-    @media screen and (orientation: portrait) and (min-width: 600px){
-        height: 44em;
-    }
-}
-    
 #about-text{
     position:relative;
-    margin: 0 auto;
-    padding: 1em 0.5em;
-    box-sizing:border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 1.5em;
     width: 100%;
     height: 100%; 
     @media screen and (min-width: 600px) and (min-height: 600px){
-        top: 5%;
-        padding: 1.5em 2em;
+        padding: 0.5em 2em;
         @media screen and (orientation: landscape){
-            width: 25em;
-            height: 30em;
+            width: 53%;
         }
         @media screen and (orientation: portrait){
-            width: 30em;
-            height: 25em;
+            height: 50%;
         }
     }
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
@@ -52,217 +29,36 @@
         image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
         image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
     }
+    p {
+        position: relative;
+        margin: 0 auto;
+        font-size: 0.95em;
+        @media screen and (orientation: portrait), screen and (min-height: 600px) {
+            font-size: 1.2em;
+        }
+        @media screen and (orientation: landscape) and (min-height: 600px) {
+            max-width: 365px;
+        }
+    }
 }
 
 #about-heading {
     width: 5em;
-}
+} 
 
-#about-body {
-    position: relative;
-    top: 50%;
-    font-size: 0.87em;
-    transform: translateY(-63%);
-    font-weight: 300;
-    @media screen and (orientation: portrait), screen and (min-height: 600px) {
-        font-size: 1em;
-        transform: translateY(-56%);
+#picture-of-me {
+    @media screen and (max-width: 599px), screen and (max-height: 599px){
+        display: none;
     }
-}
-
-    
-.logo{
-    position:absolute;
-    width: 10%;
+    position: absolute;
+    right:10%;
+    height: 47.5%;
+    bottom:0;
     @media screen and (orientation: landscape){
-        width: 7%;
-    }
-    backface-visibility: hidden;
-    overflow:hidden;
-}
-
-.logo-bigger{
-    position:absolute;
-    width: 20%;
-    @media screen and (orientation: landscape){
-        width: 14%;
-    }
-    backface-visibility: hidden;
-    overflow:hidden;
-}
-
-.logo-aspect-ratio-padding{
-    padding-bottom: 80%;
-}
-
-.logo-aspect-ratio-padding-bigger{
-    padding-bottom: 40%;
-}
-
-#css{
-    top: 65%;
-    left: 14%;
-    @media screen and (orientation: landscape){
-        top: 16%;
-        left: 1.5%;
-    }
-    img{
-        left: 0;
-    }
-}
-
-#webpack{
-    top: 65%;
-    left: 26%;
-    @media screen and (orientation: landscape){
-        top: 54%;
-        left: 81.5%;
-    }
-    img{
-        left: -100%;
-    }
-}
-
-#karma{
-    top: 65%;
-    left: 38%;
-    @media screen and (orientation: landscape){
-        top: 35%;
-        left: 1.5%;
-    }
-    img{
-        left: -200%;
-    }
-}
-
-#sass{
-    top: 65%;
-    left: 50%;
-    @media screen and (orientation: landscape){
-        top: 35%;
-        left: 11.5%;
-    }
-    img{
-        left: -300%;
-    }
-}
-
-#react{
-    top: 65%;
-    left: 62%;
-    @media screen and (orientation: landscape){
-        top: 54%;
-        left: 91.5%;
-    }
-    img{
-        left: -400%;
-    }
-}
-
-#photoshop{
-    top: 65%;
-    left: 74%;
-    @media screen and (orientation: landscape){
-        top: 54%;
-        left: 11.5%;
-    }
-    img{
-        left: -500%;
-    }
-}
-
-#mocha{
-    top: 75%;
-    left: 14%;
-    @media screen and (orientation: landscape){
-        top: 73%;
-        left: 6.5%;
-    }
-    img{
-        left: -600%;
-    }
-}
-
-#js{
-    top: 75%;
-    left: 26%;
-    @media screen and (orientation: landscape){
-        top: 16%;
-        left: 91.5%;
-    }
-    img{
-        left: -700%;
-    }
-}
-
-#html{
-    top: 75%;
-    left: 38%;
-    @media screen and (orientation: landscape){
-        top: 16%;
-        left: 81.5%;
-    }
-    img{
-        left: -800%;
-    }
-}
-
-#chai{
-    top: 75%;
-    left: 50%;
-    @media screen and (orientation: landscape){
-        top: 35%;
-        left: 81.5%;
-    }
-    img{
-        left: -900%;
-    }
-}
-
-#bootstrap{
-    top: 75%;
-    left: 62%;
-    @media screen and (orientation: landscape){
-        top: 35%;
-        left: 91.5%;
-    }
-    img{
-        left: -1000%;
-    }
-}
-
-#jquery{
-    top: 75%;
-    left: 74%;
-    @media screen and (orientation: landscape){
-        top: 16%;
-        left: 11.5%;
-    }
-    img{
-        left: -1100%;
-    }
-}
-
-#babel{
-    top: 85%;
-    left: 44%;
-    @media screen and (orientation: landscape){
-        top: 73%;
-        left: 83.5%;
-    }
-    img{
-        left: -600%;
-    }
-}
-
-#git{
-    top: 85%;
-    left: 32%;
-    @media screen and (orientation: landscape){
-        top: 54%;
-        left: 1.5%;
-    }
-    img{
-        left: -1400%;
-    }
+        height: auto;
+        max-height: 95%;
+        max-width: 60%;
+        right: 22%;
+        transform: translateX(50%);
+    }  
 }

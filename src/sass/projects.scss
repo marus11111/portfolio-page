@@ -8,25 +8,23 @@
 
 .project-heading {
     width: 6em;
+    font-size: 1.3em;
+    @media screen and (orientation: landscape) and (max-height: 599px) {
+        font-size: 1em;
+        margin-bottom: 0.25em;
+    }
 }
 
 .project{
     position: relative;
     margin: 0 auto;
-    top: 5%;
-    height: 63%;
-    @media screen and (orientation: portrait){
-        top: 10%;
-        height: 50%;
-    }
-    @media screen and (orientation: landscape) and (min-height: 600px){
-        height:55%;
+    top: 10%;
+    height: 60%;
+    @media screen and (orientation: landscape){
+        top: 5%;
+        height: 63%;
     }
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
-    padding: 0.5em 0.5em;
-    @media screen and (orientation:portrait), screen and (min-height: 600px) {
-        padding: 1.5em 2em;
-    }
     background: {
         color: rgb(46, 67,114);
         image: linear-gradient(top left, rgb(46, 67,114), rgb(119,136,170));
@@ -41,15 +39,14 @@
     transform: translateX(-50%);
     transition: opacity 1s;
     line-height: 1.2em;
+    @media screen and (orientation: landscape) and (min-height: 600px), screen and (orientation: portrait) {
+        padding-top: 1.5em;
+    }
 }
 
 .project-body {
     position: relative;
     top: 0.3em;
-    @media screen and (orientation:portrait), screen and (min-height: 600px) {
-        top: 1.5em;
-    }
-    font-weight: 300;
 }
 
 .device-mockups {
@@ -58,9 +55,9 @@
     bottom: -15%;
     width: 100%;
     @media screen and (orientation: landscape){
-        bottom: -25%;
-        width: 56.25%;
-        width: 100vh;
+        bottom: -30%;
+        width: 44%;
+        width: 90vh;
     }
     transform: translateX(-50%);
     transition: opacity 2s, top 1s, left 1s;
@@ -73,11 +70,6 @@
     &#device-mockup-project2 {
         img {
             left: -100%;
-        }
-    }
-    &#device-mockup-project3 {
-        img {
-            left: -200%;
         }
     }
 }

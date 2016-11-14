@@ -13,7 +13,7 @@ const keyDownHandler = (e) => {
                 return;
             }
             e.preventDefault();
-            if (page==2 && project<2){
+            if (page==3 && project<1){
                 changeProject(project+1);
             }
             else {
@@ -25,7 +25,7 @@ const keyDownHandler = (e) => {
                 return;
             }
             e.preventDefault();
-            if(page==2 && project>0){
+            if(page==3 && project>0){
                 changeProject(project-1);
             }
             else {

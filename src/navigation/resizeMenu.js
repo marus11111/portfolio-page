@@ -26,19 +26,19 @@ const resizeMenu = () => {
             floatedMenuElements.slice(1).forEach((floatedElement) => {
                 floatedElement.style.marginTop = '1em';
             });
-            menu.style.height = '12.3em';
-            menu.style.top = '26%';
+            menu.style.height = '14.3em';
+            menu.style.top = '23%';
         }
         else {
             floatedMenuElements.forEach((floatedElement) => {
                 floatedElement.style.marginTop = '1em';
             });
-            menu.style.height = '7.3em';
-            menu.style.top = '55%'; 
+            menu.style.height = '9.3em';
+            menu.style.top = '50%'; 
         }
     }
     else {
-        menu.style.width = '21em';
+        menu.style.width = '24em';
         if (menuOnPage) {
             floatedMenuElements.forEach((floatedElement) => {
                 floatedElement.style.marginTop = '5.75em';
@@ -51,7 +51,7 @@ const resizeMenu = () => {
                 floatedElement.style.marginTop = '0.75em';
             });
             menu.style.height = '2.5em';
-            menu.style.top = '60%'; 
+            menu.style.top = '65%'; 
         }
     }
 }

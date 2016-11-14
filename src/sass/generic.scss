@@ -27,6 +27,7 @@ body, html {
 body {
     position:relative;
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
     color: white;
     line-height: 1;
     overflow: hidden;
@@ -71,7 +72,6 @@ img{
     position: absolute;
     height: 100%;
     width:auto;
-
 }
 
 .container, .no-js-container {
@@ -110,7 +110,10 @@ img{
 .section-heading {
     font-weight: 400;
     position: relative;
-    margin: 0 auto;
+    margin: 1em auto;
     height: 2.5em;
     line-height: 2.5em;
+    @media screen and (orientation: portrait), screen and (min-height: 600px) {
+        font-size: 1.5em;
+    }
 }

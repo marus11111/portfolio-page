@@ -9,10 +9,16 @@ const keyDownHandler = (e) => {
     let k = e.keyCode || e.which;
     if (navigateOnKey) {
         if ((k==13 || k==32 || k==40 || k==39) && page<containers.length-1){
+            
+            //Don't change page if menu is open
             if (menuOnPage){
                 return;
             }
+            
+            //Prevent default scrolling
             e.preventDefault();
+            
+            //Determine whether to change project or page
             if (page==3 && project<1){
                 changeProject(project+1);
             }
@@ -33,6 +39,7 @@ const keyDownHandler = (e) => {
             }
         }
         
+        //Turn key navigation off when page transitions
         navigateOnKey = false;
         
         setTimeout(() => {

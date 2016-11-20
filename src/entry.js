@@ -6,7 +6,7 @@ import './navigation/changePage';
 import './navigation/changeProject';
 import './navigation/hideShowMenu';
 import './navigation/resizeMenu';
-import './headerEffect/headerEffect';
+import './mastheadEffect/mastheadEffect';
 import './eventHandlers/mouseWheelHandler';
 import './eventHandlers/mouseMoveHandler';
 import './eventHandlers/keyDownHandler';

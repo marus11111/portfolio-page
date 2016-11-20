@@ -3,6 +3,7 @@ import {clientWidth, clientHeight} from '../eventHandlers/resizeHandler';
 import {menuOnPage} from './hideShowMenu';
 
 
+//Function that resizes menu in its hidden state
 const resizeMinimizedMenu = () => {
     menu.style.top = '95%';
     menu.style.height = '5%';
@@ -18,6 +19,7 @@ const resizeMinimizedMenu = () => {
     }
 }
 
+//Function that resizes menu in its opened state
 const resizeMenu = () => {
     if(clientHeight > clientWidth){
         menu.style.width = '7em';

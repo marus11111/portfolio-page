@@ -1,7 +1,9 @@
 import {deviceMockups, projectText} from '../helpers/getDOMElements';
 
+//Store the number of project currently being shown on the 'projects' page
 let project = 0;
 
+//Change project to the one given as function's argument
 const changeProject = (number) => {
     if (number > project){
         while (number > project){

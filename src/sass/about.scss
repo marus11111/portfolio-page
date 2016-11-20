@@ -1,64 +1,64 @@
-#about{
+.about{
     background: {
         color: rgb(255,240,170);
         image: linear-gradient(top left, rgb(170,150, 57), rgb(255,240,170));
         image: linear-gradient(to bottom right,rgb(170,150, 57), rgb(255,240,170));
     }
     line-height: 1.7em;
-}
     
-#about-text{
-    position:relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: 0 1.5em;
-    width: 100%;
-    height: 100%; 
-    @media screen and (min-width: 600px) and (min-height: 600px){
-        padding: 0.5em 2em;
+    &__text{
+        position:relative;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 0 1.5em;
+        width: 100%;
+        height: 100%; 
+        @media screen and (min-width: 600px) and (min-height: 600px){
+            padding: 0.5em 2em;
+            @media screen and (orientation: landscape){
+                width: 53%;
+            }
+            @media screen and (orientation: portrait){
+                height: 50%;
+            }
+        }
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+        background: {
+            color: rgb(46, 67,114);
+            image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
+            image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
+        }
+        p {
+            position: relative;
+            margin: 0 auto;
+            font-size: 0.95em;
+            @media screen and (orientation: portrait), screen and (min-height: 600px) {
+                font-size: 1.2em;
+            }
+            @media screen and (orientation: landscape) and (min-height: 600px) {
+                max-width: 365px;
+            }
+        }
+    }
+    
+    &__picture-of-me {
+        @media screen and (max-width: 599px), screen and (max-height: 599px){
+            display: none;
+        }
+        position: absolute;
+        right:10%;
+        height: 47.5%;
+        bottom:0;
         @media screen and (orientation: landscape){
-            width: 53%;
-        }
-        @media screen and (orientation: portrait){
-            height: 50%;
-        }
+            height: auto;
+            max-height: 95%;
+            max-width: 60%;
+            right: 22%;
+            transform: translateX(50%);
+        }  
     }
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-    background: {
-        color: rgb(46, 67,114);
-        image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
-        image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
+    
+    &__heading {
+        width: 5em;
     }
-    p {
-        position: relative;
-        margin: 0 auto;
-        font-size: 0.95em;
-        @media screen and (orientation: portrait), screen and (min-height: 600px) {
-            font-size: 1.2em;
-        }
-        @media screen and (orientation: landscape) and (min-height: 600px) {
-            max-width: 365px;
-        }
-    }
-}
-
-#about-heading {
-    width: 5em;
-} 
-
-#picture-of-me {
-    @media screen and (max-width: 599px), screen and (max-height: 599px){
-        display: none;
-    }
-    position: absolute;
-    right:10%;
-    height: 47.5%;
-    bottom:0;
-    @media screen and (orientation: landscape){
-        height: auto;
-        max-height: 95%;
-        max-width: 60%;
-        right: 22%;
-        transform: translateX(50%);
-    }  
 }

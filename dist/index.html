@@ -12,87 +12,87 @@
     </head>
     <body>
         
-        <header class='header-background container repeating-animations' id='header'>
-            <div class='shadow'></div>
-            <div class='header-background parallax'></div>
-            <div class='shadow'></div>
-            <div class='header-background parallax'></div>
-            <div class='shadow'></div>
-            <div class='header-background parallax'></div>
-            <div class='shadow'></div>
-            <div class='header-background parallax'></div>
-            <div id='scroll-arrow-icon'></div>
-            <div class = 'header-heading'>
-                <div class='header-heading-border' id='left'></div>
-                <div class='header-heading-border' id='right'></div>
-                <div class='header-heading-border' id='top'></div>
-                <div class='header-heading-border' id='bottom'></div>
+        <header class='js_sel-container container masthead header-background repeating-animations' id='masthead'>
+            <div class='js_sel-clipped clipped-area header-background'></div>
+            <div class='js_sel-shadow shadow'></div>
+            <div class='js_sel-clipped clipped-area header-background'></div>
+            <div class='js_sel-shadow shadow'></div>
+            <div class='js_sel-clipped clipped-area header-background'></div>
+            <div class='js_sel-shadow shadow'></div>
+            <div class='js_sel-clipped clipped-area header-background'></div>
+            <div class='js_sel-shadow shadow'></div>
+            <div class='scroll-arrow-icon'></div>
+            <div class = 'masthead-heading'>
+                <div class='masthead-heading__border masthead-heading__border--left'></div>
+                <div class='masthead-heading__border masthead-heading__border--right'></div>
+                <div class='masthead-heading__border masthead-heading__border--top'></div>
+                <div class='masthead-heading__border masthead-heading__border--bottom'></div>
                 <h1>
-                    <span id='name'>Marek Włodarczyk</span>
-                    <span id='occupation'>Front-end developer</span>
+                    <span class='masthead-heading__name'>Marek Włodarczyk</span>
+                    <span class='masthead-heading__occupation'>Front-end developer</span>
                 </h1>
             </div>
         </header>
-        <section class='container' id='about'>
-            <img id='picture-of-me' src='zdjecie-png8-desaturated.png' alt='picture of me' width=0 height=0>
-            <div id='about-text'>
-                <header class='section-heading' id='about-heading'>
-                    <div class='corner top-left'></div>
+        <section class='js_sel-container container about' id='about'>
+            <img class='about__picture-of-me' src='zdjecie-png8-desaturated.png' alt='picture of me' width=0 height=0>
+            <div class='about__text'>
+                <header class='section-heading about__heading'>
+                    <div class='corner corner__top-left'></div>
                     <h2>About</h2>
-                    <div class='corner bottom-right'></div>
+                    <div class='corner corner__bottom-right'></div>
                 </header>
                 <p>Hi! I'm self-taught novice front-end developer from Poznań, Poland. I got interested in developing websites about half a year ago and I quickly came to like the power of creation that coding gives you. I especially love the fact that several dozen lines of code can often solve real business problems and help entrepreneurs provide better experience for their customers.</p>
             </div>
         </section>
-        <section class='container' id='skills'>
-            <header class='section-heading' id='skills-heading'>
-                <div class='corner top-left'></div>
+        <section class='js_sel-container container skills' id='skills'>
+            <header class='section-heading skills__heading'>
+                <div class='corner corner__top-left'></div>
                 <h2>Skills</h2>
-                <div class='corner bottom-right'></div>
+                <div class='corner corner__bottom-right'></div>
             </header>
             <ul>
-                <li class='direct-li'>I feel comfortable with:
+                <li class='skills__direct-li'>I feel comfortable with:
                      <ul>
-                        <li class='logo' id='html'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='html logo' width=0 height=0></div></li>
-                        <li class='logo' id='css'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='css logo' width=0 height=0></div></li>
-                        <li class='logo' id='js'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='js logo' width=0 height=0></div></li>
-                        <li class='logo' id='jquery'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='jquery logo' width=0 height=0></div></li>
-                        <li class='logo' id='bootstrap'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='bootstrap logo' width=0 height=0></div></li> 
-                        <li class='logo' id='git'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='git logo' width=0 height=0></div></li>
+                        <li class='logo logo__html'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='html logo' width=0 height=0></div></li>
+                        <li class='logo logo__css'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='css logo' width=0 height=0></div></li>
+                        <li class='logo logo__js'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='js logo' width=0 height=0></div></li>
+                        <li class='logo logo__jquery'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='jquery logo' width=0 height=0></div></li>
+                        <li class='logo logo__bootstrap'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='bootstrap logo' width=0 height=0></div></li> 
+                        <li class='logo logo__git'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='git logo' width=0 height=0></div></li>
                     </ul>
                 </li>
-                <li id='basic' class='direct-li'>I know basics of:
+                <li class='skills__direct-li'>I know basics of:
                      <ul>
-                        <li class='logo' id='react'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='react logo' width=0 height=0></div></li>
-                        <li class='logo' id='sass'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='sass logo' width=0 height=0></div></li>
-                        <li class='logo' id='photoshop'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='photoshop logo' width=0 height=0></div></li>
-                        <li class='logo' id='karma'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='karma logo' width=0 height=0></div></li>
-                        <li class='logo' id='mocha'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='mocha logo' width=0 height=0></div></li>
-                        <li class='logo' id='chai'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='chai logo' width=0 height=0></div></li>
+                        <li class='logo logo__react'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='react logo' width=0 height=0></div></li>
+                        <li class='logo logo__sass'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='sass logo' width=0 height=0></div></li>
+                        <li class='logo logo__photoshop'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='photoshop logo' width=0 height=0></div></li>
+                        <li class='logo logo__karma'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='karma logo' width=0 height=0></div></li>
+                        <li class='logo logo__mocha'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='mocha logo' width=0 height=0></div></li>
+                        <li class='logo logo__chai'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='chai logo' width=0 height=0></div></li>
                     </ul>
                 </li>
-                <li id='future' class='direct-li'> In near future I'd also like to learn:
+                <li class='skills__direct-li'> In near future I'd also like to learn:
                      <ul>
-                        <li class='logo' id='angular'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='angular logo' width=0 height=0></div></li>
-                        <li class='logo' id='typescript'><div class='logo-aspect-ratio-padding'><img src='sprite.png' alt='typescript logo' width=0 height=0></div></li>   
+                        <li class='logo logo__angular'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='angular logo' width=0 height=0></div></li>
+                        <li class='logo logo__typescript'><div class='logo--aspect-ratio-padding'><img src='sprite.png' alt='typescript logo' width=0 height=0></div></li>   
                     </ul>
                 </li>
             </ul>
         </section>
-        <section class='container project-container' id='projects'>
+        <section class='js_sel-container container project-container' id='projects'>
             <div class='project'>
-                <div class='project-text'>
-                    <header class='section-heading project-heading'>
-                        <div class='corner top-left'></div>
+                <div class='js_sel-project-text project__text'>
+                    <header class='section-heading project__heading'>
+                        <div class='corner corner__top-left'></div>
                         <h2>Project 1</h2>
-                        <div class='corner bottom-right'></div>
+                        <div class='corner corner__bottom-right'></div>
                     </header>
-                    <div class='project-body'>
+                    <div class='project__text__body'>
                         <p>PSD to HTML conversion. PSD file available here.</p>
                     </div>
                 </div>
-                <div class='device-mockups' id='device-mockup-project1'>
-                    <div class='mockup-aspect-ratio-padding'>
+                <div class='js_sel-mockup device-mockup device-mockup__project1'>
+                    <div class='device-mockup--aspect-ratio-padding'>
                         <img src='35d91cf0f81f91ad827f55fe719fd618.png' alt='project 1'>
                     </div>
                 </div>
@@ -100,58 +100,58 @@
         </section>
         <section class='no-js-container project-container'>
             <div class='project'>
-                <div class='project-text'>
-                    <header class='section-heading project-heading'>
-                        <div class='corner top-left'></div>
+                <div class='js_sel-project-text project__text'>
+                    <header class='section-heading project__heading'>
+                        <div class='corner corner__top-left'></div>
                         <h2>Project 2</h2>
-                        <div class='corner bottom-right'></div>
+                        <div class='corner corner__bottom-right'></div>
                     </header>
-                    <div class='project-body'>
+                    <div class='project__text__body'>
                         <p>Simple CRUD application made with React.</p>
                     </div>
                 </div>
-                <div class='device-mockups' id='device-mockup-project2'>
-                    <div class='mockup-aspect-ratio-padding'>
+                <div class='js_sel-mockup device-mockup device-mockup__project2'>
+                    <div class='device-mockup--aspect-ratio-padding'>
                         <img src='35d91cf0f81f91ad827f55fe719fd618.png' alt='project 2'>
                     </div>
                 </div>
             </div>
         </section>
-        <section class='container' id='contact'>
-            <header class='section-heading' id='contact-heading'>
-                <div class='corner top-left' id='contact-top-left'></div>
+        <section class='js_sel-container container contact' id='contact'>
+            <header class='section-heading contact__heading'>
+                <div class='corner corner__top-left'></div>
                 <h2>Contact</h2>
-                <div class='corner bottom-right' id='contact-bottom-right'></div>
+                <div class='corner corner__bottom-right'></div>
             </header> 
-            <p id='contact-body'>
+            <p class='contact__body'>
                 Currently I'm looking for my first job as a front-end developer.<br/>Please feel free to contact me. 
             </p>
-            <ul id='contact-list'>
-                <li id='email'>
+            <ul class='contact__list'>
+                <li class='contact__list__item contact__list__item--email'>
                     <a href='mailto:wlodarcz.mare@gmail.com'>wlodarcz.marek@gmail.com</a>
                 </li>
-                <li id='phone'>
+                <li class='contact__list__item contact__list__item--phone'>
                     <a href='tel:+48-664-846-116'>+48 664 864 116</a>
                 </li>
-                <li id='linkedin'>
+                <li class='contact__list__item contact__list__item--linkedin'>
                     <a href='https://pl.linkedin.com/in/marekwlodarczyk'>
                         <img src='sprite.png' alt='linkedin logo' width=0 height=0>
                     </a>
                 </li>
             </ul>
         </section>
-        <nav>
-            <ul>
-                <li class='menu-item' id='home-icon'></li>
-                <li class='menu-float'><a href='#about' class='menu-item'>About</a></li>
-                <li class='menu-float'><a href='#skills' class='menu-item'>Skills</a></li>
-                <li class='menu-float'><a href='#projects' class='menu-item'>Projects</a></li>
-                <li class = 'menu-float' id='contact-menu'><a href='#contact' class='menu-item'>Contact</a></li>
+        <nav class='menu' id='menu'>
+            <ul id='menu-ul'>
+                <li class='js_sel-menu-items menu__item menu__item--home'></li>
+                <li class='js_sel-item-float menu__item menu__item--float'><a href='#about' class='js_sel-menu-items'>About</a></li>
+                <li class='js_sel-item-float menu__item menu__item--float'><a href='#skills' class='js_sel-menu-items'>Skills</a></li>
+                <li class='js_sel-item-float menu__item menu__item--float'><a href='#projects' class='js_sel-menu-items'>Projects</a></li>
+                <li class='js_sel-item-float menu__item menu__item--float menu__item--contact'><a href='#contact' class='js_sel-menu-items'>Contact</a></li>
             </ul>
-            <div class='corner top-left' id='nav-top-left-corner'></div>
-            <div class='corner bottom-right' id='nav-bottom-right-corner'></div>
-            <button id='menu-exit-button'></button>
-            <div id='menu-arrow-icon'></div>
+            <div class='corner corner__top-left'></div>
+            <div class='corner corner__bottom-right'></div>
+            <button class='menu__exit-button' id='menu-exit-button'></button>
+            <div class='menu__arrow-icon' id='menu-arrow-icon'></div>
         </nav>
         <script src='script.js'></script>
     </body>

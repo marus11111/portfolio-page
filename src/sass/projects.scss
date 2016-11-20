@@ -6,15 +6,6 @@
     }
 }
 
-.project-heading {
-    width: 6em;
-    font-size: 1.3em;
-    @media screen and (orientation: landscape) and (max-height: 599px) {
-        font-size: 1em;
-        margin-bottom: 0.25em;
-    }
-}
-
 .project{
     position: relative;
     margin: 0 auto;
@@ -30,26 +21,35 @@
         image: linear-gradient(top left, rgb(46, 67,114), rgb(119,136,170));
         image: linear-gradient(to bottom right,rgb(46, 67,114), rgb(119,136,170));
     }
-}
-
-.project-text {
-    position:absolute;
-    width: 80%;
-    left:50%;
-    transform: translateX(-50%);
-    transition: opacity 1s;
-    line-height: 1.2em;
-    @media screen and (orientation: landscape) and (min-height: 600px), screen and (orientation: portrait) {
-        padding-top: 1.5em;
+    
+    &__heading {
+        width: 6em;
+        font-size: 1.3em;
+        @media screen and (orientation: landscape) and (max-height: 599px) {
+            font-size: 1em;
+            margin-bottom: 0.25em;
+        }
+    }
+    
+    &__text {
+        position:absolute;
+        width: 80%;
+        left:50%;
+        transform: translateX(-50%);
+        transition: opacity 1s;
+        line-height: 1.2em;
+        @media screen and (orientation: landscape) and (min-height: 600px), screen and (orientation: portrait) {
+            padding-top: 1.5em;
+        }
+        
+        &__body {
+            position: relative;
+            top: 0.3em;
+        }
     }
 }
 
-.project-body {
-    position: relative;
-    top: 0.3em;
-}
-
-.device-mockups {
+.device-mockup {
     position: absolute;
     left: 50%;
     bottom: -15%;
@@ -62,18 +62,20 @@
     transform: translateX(-50%);
     transition: opacity 2s, top 1s, left 1s;
     overflow: hidden;
-    &#device-mockup-project1 {
+    
+    &__project1 {
         img {
             left: 0;
         }
     }
-    &#device-mockup-project2 {
+    
+    &__project2 {
         img {
             left: -100%;
         }
     }
-}
-
-.mockup-aspect-ratio-padding {
-    padding-bottom: 50%;
+    
+    &--aspect-ratio-padding {
+        padding-bottom: 50%;
+    }
 }

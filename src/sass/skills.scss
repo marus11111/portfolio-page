@@ -1,4 +1,4 @@
-#skills {
+.skills {
     background: {
         color: rgb(6, 22, 57);
         image: linear-gradient(top, rgb(6, 22, 57), rgb(255, 240, 170));
@@ -7,6 +7,7 @@
     @media screen and (orientation: portrait) and (min-width: 600px) {
         padding-top: 2em;
     }
+    
     ul {
         max-width: 900px;
         margin: 0 auto;
@@ -19,33 +20,35 @@
             margin: 1.3em auto;
         }
     }
-}
-
-#skills-heading {
-    width: 5em;
-    @media screen and (orientation: landscape) and (max-height: 599px){
-        margin-bottom:0; 
-    }
-}
-
-.direct-li {
-    margin-top: 0.5em;
-    @media screen and (orientation: landscape){
-        @media (max-height: 599px) {
-            width: 40%;
-            display: inline-block;
-            margin-top: 0.25em;
+    
+    &__direct-li {
+        margin-top: 0.5em;
+        @media screen and (orientation: landscape){
+            @media (max-height: 599px) {
+                width: 40%;
+                display: inline-block;
+                margin-top: 0.25em;
+            }
+            @media (min-height: 600px){
+                margin-top: 1.5em;
+            }
         }
-        @media (min-height: 600px){
-            margin-top: 1.5em;
+        &:nth-child(3){
+            @media screen and (orientation: landscape) and (max-height: 599px){
+               margin-top: 0.75em;
+            } 
         }
     }
-    &:nth-child(3){
+    
+    &__heading {
+        width: 5em;
         @media screen and (orientation: landscape) and (max-height: 599px){
-           margin-top: 0.75em;
-        } 
+            margin-bottom:0; 
+        }
     }
 }
+
+
 
 .logo{
     position:relative;
@@ -64,20 +67,19 @@
     }
     backface-visibility: hidden;
     overflow:hidden;
-}
-
-.logo-aspect-ratio-padding{
-    padding-bottom: 80%;
-}
-
-$logos: css angular karma sass react photoshop mocha js html chai bootstrap jquery typescript git;
-
-@each $logo in $logos {
-    $i: index($logos, $logo);
-    ##{$logo} {
-        img {
-            left: ($i - 1)*(-100%);
+    
+    &--aspect-ratio-padding{
+        padding-bottom: 80%;
+    }
+    
+    $logos: css angular karma sass react photoshop mocha js html chai bootstrap jquery typescript git;
+    
+    @each $logo in $logos {
+        $i: index($logos, $logo);
+        &__#{$logo} {
+            img {
+                left: ($i - 1)*(-100%);
+            }
         }
     }
 }
-

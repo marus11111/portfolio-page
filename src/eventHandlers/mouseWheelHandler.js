@@ -6,11 +6,18 @@ import {menuOnPage} from '../navigation/hideShowMenu';
 let scroll = true;
 
 const mouseWheelHandler = (e) => {
+    
+    //Don't change pages if menu is open
     if (menuOnPage){
         return;
     }
+    
+    //Prevent default scrolling
     e.preventDefault();
+    
     if(scroll){
+        
+        //Determine direction of scroll and whether to change page or project
         if (e.deltaY>0 && page<containers.length-1){
             if (page==3 && project<1){
                 changeProject(project+1);
@@ -28,6 +35,8 @@ const mouseWheelHandler = (e) => {
             }   
         }
         
+        //Turn scroll off while page transitions 
+        //1s debounce also prevents changing multiple sites while long-scrolling on touchpad  
         scroll = false;
         
         setTimeout(() => {

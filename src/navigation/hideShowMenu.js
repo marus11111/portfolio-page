@@ -5,8 +5,11 @@ import {page} from './changePage';
 
 const {filter} = CSSProps;
 
+//Track whether menu is open
 let menuOnPage = false;
 
+
+//Function that hides menu
 const hideMenu = () => {
     menu.style.color = 'rgba(255, 255, 255, 0)';
     menu.style.cursor = 'pointer';
@@ -29,6 +32,7 @@ const hideMenu = () => {
     menuOnPage = false;
 }
 
+//Function that shows menu
 const showMenu = () => {
     menu.style.cursor = 'default';
     menuArrow.style.display = 'none';
@@ -41,6 +45,7 @@ const showMenu = () => {
     },400);
 }
 
+//Function that shows menu after clicking on arrow on the bottom-bar
 const showMenuOnArrow = () => {
     menuOnPage = true;
     showMenu();

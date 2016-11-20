@@ -3,11 +3,14 @@ import {showMenuOnArrow, hideMenu, menuOnPage} from '../navigation/hideShowMenu'
 import {changePage, page} from '../navigation/changePage';
 import {changeProject, project} from '../navigation/changeProject';
 
+//Declare variables to store touch coordinates and created click event
 let startX;
 let startY;
 let target;
 let clickEvent;
 
+//Default behavior will be prevented on touchstart so we need 
+//to create click event, which will be fired from js
 if(typeof MouseEvent == 'function'){
     clickEvent = new MouseEvent('click', {
         bubbles: true,
@@ -20,8 +23,13 @@ else {
     clickEvent.initEvent('click', false, true);  
 }
 
+
 const touchStart = (e) => {
+    
+    //Prevent default scrolling 
     e.preventDefault();
+    
+    //Save touchstart coordinates and target
     let touch = e.touches[0];
     startX = touch.pageX;
     startY = touch.pageY;
@@ -29,9 +37,13 @@ const touchStart = (e) => {
 }
 
 const touchEnd = (e) => {
+    //Get touchend coordinates
     let touch = e.changedTouches[0];
     let x = touch.pageX;
     let y = touch.pageY;
+    
+    
+    //Determine primary direction of finger move 
     let verticalChange = (() => {
         if(Math.abs(y - startY) > 50 && (Math.abs(y - startY) > Math.abs(x-startX))){
             return y-startY;
@@ -49,6 +61,9 @@ const touchEnd = (e) => {
         }
     })();
 
+    
+    //Depending on target, direction and amount of finger movement 
+    //either fire click, change page, change project, open menu or close menu
     if (verticalChange == 0 && horizontalChange == 0){
         target.dispatchEvent(clickEvent); 
     }
@@ -86,6 +101,9 @@ const touchEnd = (e) => {
 
 window.addEventListener('touchstart', (event) => {
     let e = event || window.event;
+    
+    //Only fire touch handlers if there is one finger on the screen so 
+    //that default behavior of multitouch events isn't prevented 
     if(e.touches.length == 1){
         touchStart(e); 
     }

@@ -94,68 +94,70 @@
 
 .repeating-animations {
     .corner {
-        &.top-left:not(#nav-top-left-corner) {
+        &__top-left {
             animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, top-left-corner 1s 0.2s ease-out;
         }
-        &.bottom-right:not(#nav-bottom-right-corner) {
+        &__bottom-right {
             animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, bottom-right-corner 1s 0.2s ease-out;
         }
     }
-    #scroll-arrow-icon {
+    .scroll-arrow-icon {
         animation: hide-before-revealing 1s, reveal-element 2s 1s, slide-from-top 2s 1s ease-in;
     }
-    #about-text {
+    .about__text {
         animation: reveal-element 1s;
     }
     .logo {
         animation: logos 2s;
     }
-    #email{
-        animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
-    }
-    #phone {
-        animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
-    }
-    #linkedin{
-        animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+    .contact__list__item {
+        &--email{
+            animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+        }
+        &--phone {
+            animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+        }
+        &--linkedin{
+            animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
+        }
     }
 }
 
-.header-heading {
+.masthead-heading {
     animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
-}
-
-#name{
-    animation: reveal-element 2s linear;
-}
-
-#occupation{
-    animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear;
-}
-
-.header-heading-border {
-    &#left {
-        animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
+    &__border {
+        &--left {
+            animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
+        }
+        &--right {
+            animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
+        }
+        &--top {
+            animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
+        }
+        &--bottom {
+            animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
+        }
     }
-    &#right {
-        animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
+    &__name{
+        animation: reveal-element 2s linear;
     }
-    &#top {
-        animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
-    }
-    &#bottom {
-        animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
+
+    &__occupation{
+        animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear;
     }
 }
 
-nav {
+
+.menu {
     animation:hide-before-revealing 2s, reveal-element 2s 2s;
+    
+    .corner {
+    &__top-left{
+        animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
+    }
+    &__bottom-right{
+        animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
+    }
 }
-
-#nav-top-left-corner{
-    animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
-}
-
-#nav-bottom-right-corner{
-    animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
 }

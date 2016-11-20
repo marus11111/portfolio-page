@@ -1,11 +1,4 @@
-#contact-heading {
-    width: 5.4em;
-    @media screen and (orientation: portrait), screen and (min-height: 600px) {
-        top: 5%;
-    }
-}
-
-#contact {
+.contact {
     background: {
         color: rgb(6, 22, 57);
         image: linear-gradient(top right, rgb(6, 22, 57), rgb(255,240,170));
@@ -14,77 +7,90 @@
     @media screen and (orientation: portrait) and (min-width: 600px) {
         padding-top: 2em;
     }
-    li {
-        display: inline-block;
-        margin: 0.5em auto;
-        height: 2em;
-        background: {
-            size: 14%;
-            repeat: no-repeat;
-            position: 0 50%;
+    
+    &__heading {
+        width: 5.4em;
+        @media screen and (orientation: portrait), screen and (min-height: 600px) {
+            top: 5%;
         }
-        line-height: 2em;
-        text-align: left;
-        cursor:pointer;
+    }
+    
+    &__body {
+        position:relative;
+        margin: 0 auto;
+        @media screen and (orientation: portrait), screen and (min-height: 600px) {
+            top: 7%;
+        }
+        @media screen and (orientation: portrait) and (min-width: 600px) {
+            top: 10%;
+        }
+        width:80%;
+        line-height: 1.5em;
+    }
+    
+    &__list{
         position: relative;
+        margin: 0 auto;
+        top: 3%;
+        width:100%;
         @media screen and (orientation: portrait), screen and (min-height: 600px){
-            margin: 1.3em auto; 
+            top: 12%;
+            width:16em;
         }
-    }
-    #phone {
-        width: 9.7em;
-        background-image: url($phone);
-        a {
-            padding-left: 2em;
+        @media screen and (orientation: portrait) and (min-width: 600px) {
+            top: 17%;
         }
-         @media screen and (orientation:landscape) and (max-height:599px){
-            margin-left: 1.5em; 
+        
+        &__item {
+            display: inline-block;
+            margin: 0.5em auto;
+            height: 2em;
+            background: {
+                size: 14%;
+                repeat: no-repeat;
+                position: 0 50%;
+            }
+            line-height: 2em;
+            text-align: left;
+            cursor:pointer;
+            position: relative;
+            @media screen and (orientation: portrait), screen and (min-height: 600px){
+                margin: 1.3em auto; 
+            }
+            
+            &--phone {
+                width: 9.7em;
+                background-image: url($phone);
+                a {
+                    padding-left: 2em;
+                }
+                 @media screen and (orientation:landscape) and (max-height:599px){
+                    margin-left: 1.5em; 
+                }
+            }
+            &--email {
+                width: 15.5em;
+                background-image: url($email);
+                a {
+                    padding-left: 3em;
+                }
+            }
+            &--linkedin {
+                width: 7em;
+                height: 1.86666667em;
+                overflow: hidden;
+                @media screen and (orientation:landscape) and (max-height:599px){
+                    top: 0.15em; 
+                }
+                img {
+                    left: -466.66666666667%;
+                }
+            }
         }
-    }
-    #email {
-        width: 15.5em;
-        background-image: url($email);
-        a {
-            padding-left: 3em;
-        }
-    }
-    #linkedin {
-        width: 7em;
-        height: 1.86666667em;
-        overflow: hidden;
-        @media screen and (orientation:landscape) and (max-height:599px){
-            top: 0.15em; 
-        }
-        img {
-            left: -466.66666666667%;
-        }
-    }
+    }    
 }
 
-#contact-body {
-    position:relative;
-    margin: 0 auto;
-    @media screen and (orientation: portrait), screen and (min-height: 600px) {
-        top: 7%;
-    }
-    @media screen and (orientation: portrait) and (min-width: 600px) {
-        top: 10%;
-    }
-    width:80%;
-    line-height: 1.5em;
-}
 
-#contact-list{
-    position: relative;
-    margin: 0 auto;
-    top: 3%;
-    width:100%;
-    @media screen and (orientation: portrait), screen and (min-height: 600px){
-        top: 12%;
-        width:16em;
-    }
-    @media screen and (orientation: portrait) and (min-width: 600px) {
-        top: 17%;
-    }  
-}
+
+
     

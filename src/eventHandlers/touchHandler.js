@@ -25,7 +25,7 @@ else {
 
 
 const touchStart = (e) => {
-    
+        
     //Prevent default scrolling 
     e.preventDefault();
     
@@ -65,7 +65,12 @@ const touchEnd = (e) => {
     //Depending on target, direction and amount of finger movement 
     //either fire click, change page, change project, open menu or close menu
     if (verticalChange == 0 && horizontalChange == 0){
-        target.dispatchEvent(clickEvent); 
+        if (typeof target.click == 'function'){
+            target.click();
+        }
+        else {
+            target.dispatchEvent(clickEvent);
+        }
     }
     else if (menuOnPage){
         if (verticalChange > 0){

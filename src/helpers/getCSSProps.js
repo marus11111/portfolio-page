@@ -3,7 +3,7 @@
 let propsToCheck = {
     clipPath:'polygon(30% 30%, 90% 30%, 90% 60%, 30% 60%)', 
     transformOrigin: '10% 10%',
-    transform: 'perspective(1000px) translate3D(20px, 30px, 40px)',
+    transform: 'scale(1.1) translate(20px, 30px)',
     filter: 'blur(5px)'    
 }
 

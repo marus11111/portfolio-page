@@ -2,10 +2,12 @@ import CSSProps from '../helpers/getCSSProps';
 
 const {transformOrigin, transform} = CSSProps;
 
-//Move clipped pieces towards the user 
-const transformFunction = (element, shadow, translateZ) => {
-    shadow.style[transform] = `perspective(1000px) translateZ(${translateZ}px)`;      
-    element.style[transform] = `perspective(1000px) translateZ(${translateZ}px)`;    
+//Make clipped areas bigger - gives the same visual effect of moving
+//towards user as 3d transform does, but 3d transform creates problems
+//with performance on my laptop on chrome 54/windows 10  
+const transformFunction = (element, shadow, scale) => {
+    shadow.style[transform] = `scale(${scale})`;
+    element.style[transform] = `scale(${scale})`;   
     shadow.style.boxShadow = '0px 5px 25px 5px rgba(0,0,0,0.8)';
 }
 
@@ -19,11 +21,11 @@ const positionElements = (element, shadow, top, right, bottom, left) => {
 }
 
 //Create masthead effect with clipPath property
-const clipPath = (element, shadow, translateZ, top, right, bottom, left, property, timeout) => {
+const clipPath = (element, shadow, scale, top, right, bottom, left, property, timeout) => {
     setTimeout(() => {
         positionElements(element, shadow, top, right, bottom, left);
         element.style[`${property}`] = `polygon(${left}% ${top}%, ${100-right}% ${top}%, ${100-right}% ${100-bottom}%, ${left}% ${100-bottom}%)`;
-        transformFunction(element, shadow, translateZ);
+        transformFunction(element, shadow, scale);
     }, timeout)
 }
 
@@ -35,10 +37,10 @@ const clip = (element, shadow, top, right, bottom, left, property, width, height
 
 //Create masthead effect with clip property - clip alone had to be in a 
 //separate function, so that it could be used wihout transform when window is resized
-const initialClip = (element, shadow, translateZ, top, right, bottom, left, property, width, height, timeout) => {
+const initialClip = (element, shadow, scale, top, right, bottom, left, property, width, height, timeout) => {
     setTimeout(() => {
         clip(element, shadow, top, right, bottom, left, property, width, height);
-        transformFunction(element, shadow, translateZ);       
+        transformFunction(element, shadow, scale);       
     }, timeout);  
 }
 

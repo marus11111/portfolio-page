@@ -3,10 +3,13 @@ import {changeProject} from '../navigation/changeProject';
 import {menuItems} from '../helpers/getDOMElements';
 
 menuItems.forEach((menuItem, i) => {
-    menuItem.addEventListener('click', (e)=>{
-        
-        //Prevent hyperlinks from firing
-        e.preventDefault();
+    
+    //Disable hyperlinks
+    if (menuItem.href){
+        menuItem.href = 'javascript:';
+    }
+    
+    menuItem.addEventListener('click', (e)=>{ 
         
         //Change project to first or last one depending on where user navigates
         if (i<=3) {

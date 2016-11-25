@@ -11,6 +11,7 @@ let clickEvent;
 
 //Default behavior will be prevented on touchstart so we need 
 //to create click event, which will be fired from js
+
 if(typeof MouseEvent == 'function'){
     clickEvent = new MouseEvent('click', {
         bubbles: true,
@@ -22,7 +23,6 @@ else {
     clickEvent = document.createEvent('MouseEvent');
     clickEvent.initEvent('click', false, true);  
 }
-
 
 const touchStart = (e) => {
         
@@ -65,11 +65,19 @@ const touchEnd = (e) => {
     //Depending on target, direction and amount of finger movement 
     //either fire click, change page, change project, open menu or close menu
     if (verticalChange == 0 && horizontalChange == 0){
-        if (typeof target.click == 'function'){
-            target.click();
-        }
-        else {
-            target.dispatchEvent(clickEvent);
+        
+        //dispatch click event
+        target.dispatchEvent(clickEvent);
+        
+        //dispatched click event doesnt open href links, so they are opened manually
+        let link = target.href || target.parentNode.href;
+        if (link && link!='javascript:'){
+            if (/mailto|tel/.test(link)){
+                window.location = link;
+            }
+            else {
+                window.open(link);
+            }
         }
     }
     else if (menuOnPage){

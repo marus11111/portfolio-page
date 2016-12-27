@@ -1,3 +1,4 @@
+import 'core-js/fn/array/find';
 
 //Define object with css properties that require support check
 let propsToCheck = {
@@ -32,15 +33,12 @@ const checkBrowserSupport = (options) => {
         //Create RegExp object from variable
         let regex = new RegExp(regexProperty);
         
-        //Run loop over array of possible properties and return when a working one is found
-        let workingProperty = (()=>{
-            for (let i=0; i<properties.length; i++){
-                testElement.style[properties[i]] = options[property];
-                if (regex.test(testElement.getAttribute('style'))){
-                    return properties[i];     
-                }
-            }
-        })();
+        //Find a working property in properties array
+        let workingProperty = properties.find((potentialProp) => {
+            testElement.style[potentialProp] = options[property];
+            return regex.test(testElement.getAttribute('style'));
+        })
+        
         
         //If there was a working property, save it in object that was created at the beginning
         if(workingProperty){

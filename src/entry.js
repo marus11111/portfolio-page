@@ -8,7 +8,6 @@ import './navigation/initialProjectsSetup';
 import './navigation/changePage';
 import './navigation/changeProject';
 import './navigation/hideShowMenu';
-import './navigation/resizeMenu';
 import './mastheadEffect/mastheadEffect';
 import './eventHandlers/mouseWheelHandler';
 import './eventHandlers/mouseMoveHandler';

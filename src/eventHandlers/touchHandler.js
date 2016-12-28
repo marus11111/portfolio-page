@@ -1,5 +1,5 @@
 import {menuArrow, containers} from '../helpers/getDOMElements';
-import {showMenuOnArrow, hideMenu, menuOnPage} from '../navigation/hideShowMenu';
+import {showFullMenu, minimizeMenu, fullMenuOnPage} from '../navigation/hideShowMenu';
 import {changePage, page} from '../navigation/changePage';
 import {changeProject, project} from '../navigation/changeProject';
 
@@ -80,14 +80,14 @@ const touchEnd = (e) => {
             }
         }
     }
-    else if (menuOnPage){
+    else if (fullMenuOnPage){
         if (verticalChange > 0){
-            hideMenu();
+            minimizeMenu();
         }
     }
     else if (target == menuArrow) {
         if (verticalChange < 0) {
-           showMenuOnArrow(); 
+           showFullMenu(); 
         }
     }
     else if (page == 3){

@@ -1,4 +1,5 @@
 import {deviceMockups, projectText} from '../helpers/getDOMElements';
+import {removeClasses} from '../helpers/removeClasses';
 
 //Store the number of project currently being shown on the 'projects' page
 let project = 0;
@@ -7,24 +8,21 @@ let project = 0;
 const changeProject = (number) => {
     if (number > project){
         while (number > project){
-            projectText[project].style.opacity = 0;
-            deviceMockups[project].style.left = '-200%';
-            deviceMockups[project].style.opacity = 0;
+            projectText[project].className += ' fade-out';
+            deviceMockups[project].className += ' device-mockup--left fade-out';
             project++;
         }
     }
     else if (project > number){
         while (number < project) {
-            projectText[project].style.opacity = 0;
-            deviceMockups[project].style.left = '200%';
-            deviceMockups[project].style.opacity = 0;
+            projectText[project].className += ' fade-out';
+            deviceMockups[project].className += ' device-mockup--right fade-out';
             project--;
         }
     }
-    deviceMockups[project].style.left = '50%';
-    deviceMockups[project].style.opacity = 1;
+    removeClasses([deviceMockups[project]], 'fade-out', 'device-mockup--left', 'device-mockup--right');
     setTimeout(() => {
-        projectText[project].style.opacity = 1;
+        removeClasses([projectText[project]], 'fade-out');
     }, 500)
 }
 

@@ -1,69 +1,43 @@
 import {menuUl, menu, menuItems, menuArrow, menuExit, containers} from '../helpers/getDOMElements';
 import CSSProps from '../helpers/getCSSProps';
-import {resizeMenu, resizeMinimizedMenu} from './resizeMenu';
+import {removeClasses} from '../helpers/removeClasses';
 import {page} from './changePage';
 
-const {filter} = CSSProps;
+let {filter} = CSSProps;
 
 //Track whether menu is open
-let menuOnPage = false;
+let fullMenuOnPage = false;
 
+const removeBlur = () => {
+    filter ? removeClasses([containers[page]], 'container--blur') : 
+             removeClasses([containers[page]], 'container--darken');
+}
 
 //Function that hides menu
-const hideMenu = () => {
-    menu.style.color = 'rgba(255, 255, 255, 0)';
-    menu.style.cursor = 'pointer';
-    menuUl.style.opacity = 0;
-    menuItems[0].style.opacity = 0;
-    setTimeout(() => {
-        resizeMinimizedMenu();
-        menuItems[0].style.display = 'none';
-        menuUl.style.display = 'none';
-        menuExit.style.display = 'none';
-        menuArrow.style.display = 'block';
-        menuArrow.style.opacity = 1;
-        if (filter){
-            containers[page].style[filter] = 'none';  
-        }
-        else {
-            containers[page].style.opacity = 1;
-        }
-    }, 250);
-    menuOnPage = false;
+const minimizeMenu = () => {
+    fullMenuOnPage = false;
+    menu.className += ' menu--minimized';
+    removeClasses([menu], 'menu--full');
+    removeBlur();
 }
 
 //Function that shows menu
-const showMenu = () => {
-    menu.style.cursor = 'default';
-    menuArrow.style.display = 'none';
-    menuArrow.style.opacity = 0;
-    resizeMenu();
-    setTimeout(() => {
-        menuUl.style.display = 'block';
-        menuUl.style.opacity = 1;
-        menu.style.color = 'rgba(255, 255, 255, 1)';
-    },400);
+const showHomeMenu = () => {
+    fullMenuOnPage = false;
+    removeClasses([menu], 'menu--minimized', 'menu--full');
+    removeBlur(); 
 }
 
 //Function that shows menu after clicking on arrow on the bottom-bar
-const showMenuOnArrow = () => {
-    menuOnPage = true;
-    showMenu();
-    setTimeout(() => {
-        menuExit.style.display = 'block';
-        menuExit.style.opacity = 1;
-        menuItems[0].style.display = 'block';
-        menuItems[0].style.opacity = 1;
-    },400);
-    if (filter){
-        containers[page].style[filter] = 'blur(5px) brightness(0.5)';  
-    }
-    else {
-        containers[page].style.opacity = 0.4;
-    }
+const showFullMenu = () => {
+    fullMenuOnPage = true;
+    menu.className += ' menu--full';
+    removeClasses([menu], 'menu--minimized');
+    filter ? containers[page].className += ' container--blur' :
+             containers[page].className += ' container--darken';
 }
 
-menuExit.addEventListener('click', hideMenu);
-menuArrow.addEventListener('click', showMenuOnArrow);
+menuExit.addEventListener('click', minimizeMenu);
+menuArrow.addEventListener('click', showFullMenu);
 
-export {hideMenu, showMenu, showMenuOnArrow, menuOnPage};
+export {minimizeMenu, showHomeMenu, showFullMenu, fullMenuOnPage};

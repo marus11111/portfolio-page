@@ -4,8 +4,8 @@ import 'core-js/fn/array/find';
 let propsToCheck = {
     clipPath:'polygon(30% 30%, 90% 30%, 90% 60%, 30% 60%)', 
     transformOrigin: '10% 10%',
-    transform: 'scale(1.1) translate(20px, 30px)',
-    filter: 'blur(5px)'    
+    transform: 'scale(1.1) translate(20px, 30px)', 
+    filter: 'blur(5px)'
 }
 
 const checkBrowserSupport = (options) => {
@@ -37,7 +37,7 @@ const checkBrowserSupport = (options) => {
         let workingProperty = properties.find((potentialProp) => {
             testElement.style[potentialProp] = options[property];
             return regex.test(testElement.getAttribute('style'));
-        })
+        });
         
         
         //If there was a working property, save it in object that was created at the beginning

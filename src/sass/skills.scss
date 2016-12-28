@@ -15,14 +15,13 @@
         @media screen and (orientation: landscape) and (max-height: 599px){
             font-size: 0.87em; 
         }
-        @media screen and (orientation: portrait) and (min-width: 600px) {
-            width: 80%;
-            margin: 1.3em auto;
+        @media screen and (orientation: portrait){
+            width: 75%;
+            margin: 1em auto;
         }
     }
     
     &__direct-li {
-        margin-top: 0.5em;
         @media screen and (orientation: landscape){
             @media (max-height: 599px) {
                 width: 40%;
@@ -35,7 +34,7 @@
         }
         &:nth-child(3){
             @media screen and (orientation: landscape) and (max-height: 599px){
-               margin-top: 0.75em;
+               margin-top: 0.5em;
             } 
         }
     }
@@ -53,11 +52,12 @@
 .logo{
     position:relative;
     display: inline-block;
-    width: 15%;
+    width: 20%;
     margin: 0 0.5em 1em 0.5em;
     @media screen and (orientation: landscape){
         margin-top: 0.5em;
         margin-bottom: 0;
+        width: 15%;
         @media screen and (min-height: 600px) {
             width: 12%;
         } 
@@ -72,7 +72,7 @@
         padding-bottom: 80%;
     }
     
-    $logos: css angular karma sass react photoshop mocha js html chai bootstrap jquery typescript git;
+    $logos: html css js react sass jquery bootstrap photoshop php mysql git angular typescript tdd;
     
     @each $logo in $logos {
         $i: index($logos, $logo);

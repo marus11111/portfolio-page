@@ -1,7 +1,7 @@
 import {containers} from '../helpers/getDOMElements';
 import {changeProject, project} from '../navigation/changeProject'; 
 import {changePage, page} from '../navigation/changePage';
-import {menuOnPage} from '../navigation/hideShowMenu';
+import {fullMenuOnPage} from '../navigation/hideShowMenu';
 
 let navigateOnKey = true;
 
@@ -11,7 +11,7 @@ const keyDownHandler = (e) => {
         if ((k==13 || k==32 || k==40 || k==39) && page<containers.length-1){
             
             //Don't change page if menu is open
-            if (menuOnPage){
+            if (fullMenuOnPage){
                 return;
             }
             
@@ -27,7 +27,7 @@ const keyDownHandler = (e) => {
             }
         }
         else if ((k == 38 || k==37) && page>0){
-            if (menuOnPage) {
+            if (fullMenuOnPage) {
                 return;
             }
             e.preventDefault();

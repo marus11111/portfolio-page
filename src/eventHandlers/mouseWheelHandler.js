@@ -1,14 +1,14 @@
 import {containers} from '../helpers/getDOMElements';
 import {changeProject, project} from '../navigation/changeProject'; 
 import {changePage, page} from '../navigation/changePage';
-import {menuOnPage} from '../navigation/hideShowMenu';
+import {fullMenuOnPage} from '../navigation/hideShowMenu';
 
 let scroll = true;
 
 const mouseWheelHandler = (e) => {
     
     //Don't change pages if menu is open
-    if (menuOnPage){
+    if (fullMenuOnPage){
         return;
     }
     

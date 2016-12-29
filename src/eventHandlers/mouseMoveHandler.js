@@ -2,7 +2,7 @@ import CSSProps from '../helpers/getCSSProps';
 
 const {transform} = CSSProps;
 
-export default (element, shadow, speedX, speedY, scale, mouseX, mouseY) => {
+export default (element, shadow, speedX, speedY, translateZ, mouseX, mouseY) => {
     
     //Turn off transitions that were necessary for initial masthead effect
     element.style.transition = 'none';
@@ -10,6 +10,6 @@ export default (element, shadow, speedX, speedY, scale, mouseX, mouseY) => {
     
     //Move clipped pieces of background according to the cursor movement;
     //also keep the transform values from mastheadEffect
-    element.style[transform] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
-    shadow.style[transform] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
+    element.style[transform] = `perspective(1000px) translate3D(${mouseX/speedX}px, ${mouseY/speedY}px, ${translateZ}px)`;
+    shadow.style[transform] = `perspective(1000px) translate3D(${mouseX/speedX}px, ${mouseY/speedY}px, ${translateZ}px)`;
 }

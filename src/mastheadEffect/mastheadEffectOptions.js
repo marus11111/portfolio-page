@@ -1,10 +1,10 @@
 //Options for clipping and transforming mastead background
 
 const optionsTransform = [
-    [90, 100, 1.1], //speedX, speedY (mouseMove modifiers), scale
-    [40, 40, 1.08],
-    [70, 70, 1.08],
-    [30, 55, 1.05]
+    [90, 100, 100], //speedX, speedY (mouseMove modifiers), translateZ
+    [40, 40, 90],
+    [70, 70, 90],
+    [30, 55, 80]
 ]
 
 const optionsClip = [

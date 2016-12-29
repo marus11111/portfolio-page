@@ -15,7 +15,7 @@ menuItems.forEach((menuItem, i) => {
         if (i<=3) {
             changeProject(0);
         }
-        else if (i==4) {
+        else if (i===4) {
             changeProject(1);
         }
         

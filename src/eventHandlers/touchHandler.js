@@ -12,7 +12,7 @@ let clickEvent;
 //Default behavior will be prevented on touchstart so we need 
 //to create click event, which will be fired from js
 
-if(typeof MouseEvent == 'function'){
+if(typeof MouseEvent === 'function'){
     clickEvent = new MouseEvent('click', {
         bubbles: false,
         cancelable: true,
@@ -64,14 +64,14 @@ const touchEnd = (e) => {
     
     //Depending on target, direction and amount of finger movement 
     //either fire click, change page, change project, open menu or close menu
-    if (verticalChange == 0 && horizontalChange == 0){
+    if (verticalChange === 0 && horizontalChange === 0){
         
         //dispatch click event
         target.dispatchEvent(clickEvent);
         
         //dispatched click event doesnt open href links, so they are opened manually
         let link = target.href || target.parentNode.href;
-        if (link && link!='javascript:'){
+        if (link && link !== 'javascript:'){
             if (/mailto|tel/.test(link)){
                 window.location = link;
             }
@@ -85,22 +85,22 @@ const touchEnd = (e) => {
             minimizeMenu();
         }
     }
-    else if (target == menuArrow) {
+    else if (target === menuArrow) {
         if (verticalChange < 0) {
            showFullMenu(); 
         }
     }
-    else if (page == 3){
+    else if (page === 3){
         if (project < 1 && (verticalChange < 0 || horizontalChange < 0)) {
             changeProject(project+1);
         }
         else if (project > 0 && (verticalChange > 0 || horizontalChange > 0)){
             changeProject(project-1);
         }
-        else if (project == 1 && (verticalChange < 0 || horizontalChange < 0)){
+        else if (project === 1 && (verticalChange < 0 || horizontalChange < 0)){
             changePage(page+1);
         }
-        else if (project == 0 && (verticalChange > 0 || horizontalChange > 0)){
+        else if (project === 0 && (verticalChange > 0 || horizontalChange > 0)){
             changePage(page-1);
         }
     }
@@ -117,13 +117,13 @@ window.addEventListener('touchstart', (event) => {
     
     //Only fire touch handlers if there is one finger on the screen so 
     //that default behavior of multitouch events isn't prevented 
-    if(e.touches.length == 1){
+    if(e.touches.length === 1){
         touchStart(e); 
     }
 });
 window.addEventListener('touchend', (event) => {
     let e = event || window.event;
-    if(e.changedTouches.length == 1){
+    if(e.changedTouches.length === 1){
         touchEnd(e); 
     }
 });

@@ -19,7 +19,7 @@ const mouseWheelHandler = (e) => {
         
         //Determine direction of scroll and whether to change page or project
         if (e.deltaY>0 && page<containers.length-1){
-            if (page==3 && project<1){
+            if (page===3 && project<1){
                 changeProject(project+1);
             }
             else {
@@ -27,7 +27,7 @@ const mouseWheelHandler = (e) => {
             }
         }
         else if (e.deltaY<0 && page>0){
-            if(page==3 && project>0){
+            if(page===3 && project>0){
                 changeProject(project-1);
             }
             else {

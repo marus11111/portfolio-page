@@ -2,7 +2,7 @@ import CSSProps from '../helpers/getCSSProps';
 
 const {transform} = CSSProps;
 
-const mouseMoveHandler = (element, shadow, speedX, speedY, scale, mouseX, mouseY) => {
+export default (element, shadow, speedX, speedY, scale, mouseX, mouseY) => {
     
     //Turn off transitions that were necessary for initial masthead effect
     element.style.transition = 'none';
@@ -13,5 +13,3 @@ const mouseMoveHandler = (element, shadow, speedX, speedY, scale, mouseX, mouseY
     element.style[transform] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
     shadow.style[transform] = `scale(${scale}) translate(${mouseX/speedX}px, ${mouseY/speedY}px)`;
 }
-
-export {mouseMoveHandler};

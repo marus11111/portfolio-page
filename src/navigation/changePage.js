@@ -1,6 +1,6 @@
-import {containers, menu} from '../helpers/getDOMElements';
+import {containers} from '../helpers/getDOMElements';
 import {minimizeMenu, showHomeMenu, fullMenuOnPage} from './hideShowMenu';
-import {removeClasses} from '../helpers/removeClasses';
+import removeClasses from '../helpers/removeClasses';
 
 
 //Store current page number
@@ -16,8 +16,8 @@ const changePageDown = (number) => {
     
 const changePageUp = (number) => {
     while (number < page){
-        removeClasses([containers[page]], 'container--up');
-        removeClasses([containers[page - 1]], 'fade-out');
+        removeClasses(containers[page], 'container--up');
+        removeClasses(containers[page - 1], 'fade-out');
         page--;
     }
 }
@@ -28,7 +28,7 @@ const changePage = (number) => {
     
     //Remove animation class from page we're leaving, 
     //so that animations can be reapplied when user visits the page again 
-    removeClasses([containers[page]], 'repeating-animations');
+    removeClasses(containers[page], 'repeating-animations');
     
     //If navigating to home page, open menu without home item and exit button
     //else and if currently menu is open, hide it

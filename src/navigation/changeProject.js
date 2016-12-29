@@ -1,5 +1,5 @@
 import {deviceMockups, projectText} from '../helpers/getDOMElements';
-import {removeClasses} from '../helpers/removeClasses';
+import removeClasses from '../helpers/removeClasses';
 
 //Store the number of project currently being shown on the 'projects' page
 let project = 0;
@@ -20,9 +20,9 @@ const changeProject = (number) => {
             project--;
         }
     }
-    removeClasses([deviceMockups[project]], 'fade-out', 'device-mockup--left', 'device-mockup--right');
+    removeClasses(deviceMockups[project], 'fade-out', 'device-mockup--left', 'device-mockup--right');
     setTimeout(() => {
-        removeClasses([projectText[project]], 'fade-out');
+        removeClasses(projectText[project], 'fade-out');
     }, 500)
 }
 

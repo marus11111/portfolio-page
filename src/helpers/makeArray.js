@@ -1,7 +1,4 @@
-
 //Little helper to make arrays from DOM element collections
-const makeArray = (arrayLike) => {
+export default (arrayLike) => {
     return Array.prototype.slice.call(arrayLike);
 }
-
-export {makeArray};

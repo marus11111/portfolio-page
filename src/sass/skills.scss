@@ -1,39 +1,41 @@
 .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: {
         color: rgb(6, 22, 57);
         image: linear-gradient(top, rgb(6, 22, 57), rgb(255, 240, 170));
         image: linear-gradient(to bottom, rgb(6, 22, 57) -30%, rgb(255, 240, 170));
     }
-    @media screen and (orientation: portrait) and (min-width: 600px) {
-        padding-top: 2em;
-    }
     
     ul {
+        width: 75%;
         max-width: 900px;
-        margin: 0 auto;
-        margin-top: 0.5em;
-        @media screen and (orientation: landscape) and (max-height: 599px){
+        margin: 0.5em auto 0 auto;
+        
+        @include landscapeSmall {
             font-size: 0.87em; 
         }
-        @media screen and (orientation: portrait){
-            width: 75%;
-            margin: 1em auto;
+        @include landscapeBig {
+            width: 100%; 
         }
     }
     
     &__direct-li {
-        @media screen and (orientation: landscape){
-            @media (max-height: 599px) {
-                width: 40%;
-                display: inline-block;
-                margin-top: 0.25em;
-            }
-            @media (min-height: 600px){
-                margin-top: 1.5em;
-            }
+        margin-top: 0.75em;
+        @include landscapeSmall {
+            display: inline-block;
+            width: 45%;
+            margin-top: 0.25em;
         }
+        @include landscapeBig {
+            margin-top: 1.5em;
+        }
+        
         &:nth-child(3){
-            @media screen and (orientation: landscape) and (max-height: 599px){
+            margin-bottom: 2em;
+            
+            @include landscapeSmall {
                margin-top: 0.5em;
             } 
         }
@@ -41,8 +43,10 @@
     
     &__heading {
         width: 5em;
-        @media screen and (orientation: landscape) and (max-height: 599px){
-            margin-bottom:0; 
+        margin-bottom: 0.5em;
+        
+        @include landscapeSmall {
+            margin-bottom: 0;
         }
     }
 }
@@ -50,23 +54,20 @@
 
 
 .logo{
-    position:relative;
     display: inline-block;
-    width: 20%;
+    position:relative;
+    width: 21%;
     margin: 0 0.5em 1em 0.5em;
-    @media screen and (orientation: landscape){
-        margin-top: 0.5em;
-        margin-bottom: 0;
-        width: 15%;
-        @media screen and (min-height: 600px) {
-            width: 12%;
-        } 
-    }
-    @media screen and (orientation: portrait) and (min-width: 600px) {
-        width: 18%;
-    }
     backface-visibility: hidden;
     overflow:hidden;
+    
+    @include landscape {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+    } 
+    @include landscapeBig {
+        width: 12%;
+    }
     
     &--aspect-ratio-padding{
         padding-bottom: 80%;

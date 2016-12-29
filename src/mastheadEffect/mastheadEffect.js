@@ -2,7 +2,7 @@ import {masthead, clippedAreas, shadows} from '../helpers/getDOMElements';
 import {optionsTransform, optionsClip} from './mastheadEffectOptions';
 import CSSProps from '../helpers/getCSSProps';
 import {clipPath, initialClip, clip} from './clipFunction';
-import {mouseMoveHandler} from '../eventHandlers/mouseMoveHandler';
+import mouseMoveHandler from '../eventHandlers/mouseMoveHandler';
 import {clientWidth, clientHeight} from '../eventHandlers/resizeHandler';
     
 const {clipProp} = CSSProps;   

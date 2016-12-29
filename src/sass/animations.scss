@@ -1,3 +1,5 @@
+// All the animations used in project
+
 @keyframes reveal-element {
     0% {
         opacity: 0;
@@ -150,14 +152,18 @@
 
 
 .menu {
-    animation:hide-before-revealing 2s, reveal-element 2s 2s;
+    animation: hide-before-revealing 2s, reveal-element 2s 2s;
+    
+    ul {
+        animation: hide-before-revealing 0.2s, reveal-element 0.5s 0.2s;
+    }
     
     .corner {
-    &__top-left{
-        animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
+        &__top-left{
+            animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
+        }
+        &__bottom-right{
+            animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
+        }
     }
-    &__bottom-right{
-        animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
-    }
-}
 }

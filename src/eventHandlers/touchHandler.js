@@ -14,7 +14,7 @@ let clickEvent;
 
 if(typeof MouseEvent == 'function'){
     clickEvent = new MouseEvent('click', {
-        bubbles: true,
+        bubbles: false,
         cancelable: true,
         view: window
     }); 

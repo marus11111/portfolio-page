@@ -1,34 +1,30 @@
 .menu {
     position: absolute;
-    z-index: 1;
     left: 50%;
+    z-index: 1;
+    width: 7em;
+    font-size: 1.2em;
+    text-align: center;
     color: rgba(255, 255, 255, 1);
+    background: rgba(0,0,0,0.6);
     transform: translateX(-50%);
     transition: color 0.25s, opacity 0.25s, width 0.25s, height 0.25s, top 0.4s;
-    font-size: 1.2em;
-    top: 50%;
-    width: 7em;
-    height: 9.3em;
-    @media screen and (orientation: landscape) {
-        font-size: 1em;
-        top:65%;
+    
+    @include landscape {
         width: 24em;
-        height: 2.5em;
+        font-size: 1em;
     }
-    text-align: center;
-    background: rgba(0,0,0,0.6);
     
     &__item {
-        box-sizing: border-box;
         width: 7em;
-        @media screen and (orientation: landscape) {
-            width: 6em;
-        }
         height: 1em;
+        line-height: 1em;
+        box-sizing: border-box;
         padding: 0 1em;
         margin-top: 1em;
-        line-height: 1em;
-        @media screen and (orientation: landscape){
+        
+        @include landscape{
+            width: 6em;
             margin-top: 0.75em;
             &:not(&--home):not(&--contact){
                 border-right: solid 1px;
@@ -38,121 +34,136 @@
         &--float {
             float: left;
         }
+        
         &--home {
             display: none;
-            position: absolute;
-            height: 2.5em;
-            width: 2.5em;
-            top: 1em;
-            background: {
-                image: url($home);
-                position: center;
-                repeat: no-repeat;
-                size: contain;
-            } 
-            left: 50%;
-            transform: translateX(-50%);
-            cursor: pointer;
-            transition: transform 0.2s, opacity 0.25s;
-            &:hover {
-                transform: translateX(-50%) scale(1.05);
-            }
         }
+        
         a {
             transition: font-size 0.2s;
             &:hover {
             font-size: 1.05em;
             }
         }
+    } 
+    
+    &__exit-button {
+        display: none;
     }
     
     &__arrow-icon {
         display: none;
-        height: 100%;
-        width: 100%;
-        background: {
-            image: url($arrow2);
-            size: contain;
-            repeat: no-repeat;
-            position: center;
-        }
-        transition: opacity 0.3s;
     }
     
-    &__exit-button {
-        display: none;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 0.5em;
-        right: 0.5em;
-        width: 2em;
-        height: 2em;
-        outline: none;
-        background: {
-            color: transparent;
-            image: url($exit);
-            size: contain;
-            repeat: no-repeat;
-            position: center;
+    &--home {
+        top: 50%;
+        width: 7em;
+        height: 9.3em;
+        
+        @include landscape {
+            top:65%;
+            width: 24em;
+            height: 2.5em;
+        }  
+    }
+    
+    &--full {
+        top: 23%;
+        height: 14.3em;
+        
+        @include landscape {
+            height: 7.5em;
         }
-        &:hover {
-            transform: scale(1.05);
-        }
-    } 
-} 
 
-.menu--full {
-    top: 23%;
-    height: 14.3em;
-    @media screen and (orientation: landscape) {
-        top: 36%;
-        height: 7.5em;
-    }
-    
-    .menu__item {
-                
-        &--float{
-            margin-top: 1em;
-            &:nth-child(2) {
-                margin-top: 6em;
-            }
-            @media screen and (orientation: landscape) {
+        .menu__item {
+            &--float{
                 margin-top: 5.75em;
+                
+                @include portrait {
+                    margin-top: 1em;
+                    &:nth-child(2) {
+                        margin-top: 6em;
+                    }    
+                }
+            }
+
+            &--home {
+                display: block;
+                position: absolute;
+                top: 1em;
+                left: 50%;
+                width: 2.5em;
+                height: 2.5em;
+                cursor: pointer;
+                background: {
+                    image: url($home);
+                    position: center;
+                    repeat: no-repeat;
+                    size: contain;
+                } 
+                transform: translateX(-50%);
+                transition: transform 0.2s, opacity 0.25s;
+                
+                &:hover {
+                    transform: translateX(-50%) scale(1.05);
+                }
             }
         }
-        
-        &--home {
+
+        .menu__exit-button {
             display: block;
+            position: absolute;
+            top: 0.5em;
+            right: 0.5em;
+            width: 2em;
+            height: 2em;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: {
+                color: transparent;
+                image: url($exit);
+                size: contain;
+                repeat: no-repeat;
+                position: center;
+            }
+            
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
     
-    .menu__exit-button {
-        display: block;
-    }
-}
+    &--minimized {
+        top: 95%;
+        width: 100%;
+        height: 5%;
+        color: rgba(255, 255, 255, 0);
+        cursor: pointer;
 
-.menu--minimized {
-    width: 100%;
-    height: 5%;
-    top: 95%;
-    color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-    
-    ul {
-        display: none;
-    }
-    
-    @media screen and (orientation: landscape) {
-        width: 40%;
+        ul {
+            display: none;
+        }
         
-        @media (max-height: 599px) {
+        @include landscape {
+            width: 40%;
+        }
+        @include landscapeSmall {
             top: 90%;
             height: 10%;
         }
+
+        .menu__arrow-icon {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s;
+            background: {
+                image: url($arrow2);
+                size: contain;
+                repeat: no-repeat;
+                position: center;
+            }
+        }
     }
-    
-    .menu__arrow-icon {
-        display: block;
-    }
-}
+} 

@@ -1,0 +1,52 @@
+//Mixins for more readable media queries. Due to nature of design entire content 
+//of single section must fit into screen without scrolling. That creates need for 
+//some specific styling for particular screen size/orientation combinations.
+
+$breakpoint: 600px;
+
+//Font size is relative to shorter edge of the screen if both width and height are at least 600px
+//and relative to longer edge if one of the axis is shorter.
+@mixin fontSizeChange {
+     @media screen and (orientation: portrait) and (min-width: #{$breakpoint}), screen and (orientation: landscape) and (max-height: #{$breakpoint - 1px}) {
+         @content;
+    }
+}
+
+//Default design is for small screen in portrait orientation (normally held mobile device)
+//Other combinations of size/orientation require to have their specific media queries.
+
+@mixin landscape {
+    @media screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin portrait {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin landscapeSmall {
+    @media screen and (orientation: landscape) and (max-height: #{$breakpoint - 1px}) {
+        @content;
+    }
+}
+
+@mixin landscapeBig {
+    @media screen and (orientation: landscape) and (min-height: #{$breakpoint}) {
+        @content;
+    }
+}
+
+@mixin portraitBig {
+    @media screen and (orientation: portrait) and (min-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
+@mixin big {
+    @media screen and (min-width: #{$breakpoint}) and (min-height: #{$breakpoint}) {
+        @content;
+    }
+}

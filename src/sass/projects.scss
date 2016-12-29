@@ -8,13 +8,9 @@
 
 .project{
     position: relative;
-    margin: 0 auto;
     top: 10%;
     height: 60%;
-    @media screen and (orientation: landscape){
-        top: 5%;
-        height: 63%;
-    }
+    margin: 0 auto;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
     background: {
         color: rgb(46, 67,114);
@@ -22,10 +18,17 @@
         image: linear-gradient(to bottom right,rgb(46, 67,114), rgb(119,136,170));
     }
     
+    @include landscape {
+        top: 5%;
+        height: 63%;
+    }
+    
     &__heading {
+        margin-top: 0.5em;
         width: 6em;
         font-size: 1.3em;
-        @media screen and (orientation: landscape) and (max-height: 599px) {
+        
+        @include landscapeSmall {
             font-size: 1em;
             margin-bottom: 0.25em;
         }
@@ -33,18 +36,24 @@
     
     &__text {
         position:absolute;
-        width: 80%;
         left:50%;
+        width: 80%;
+        line-height: 1.5em;
+        padding-top: 1.5em;
         transform: translateX(-50%);
         transition: opacity 1s;
-        line-height: 1.2em;
-        @media screen and (orientation: landscape) and (min-height: 600px), screen and (orientation: portrait) {
-            padding-top: 1.5em;
+        
+        @include landscapeSmall {
+            padding-top: 0.5em;
         }
         
         &__body {
             position: relative;
             top: 0.3em;
+            
+            @include landscapeSmall {
+                top: 0;
+            }
         }
     }
 }
@@ -54,14 +63,15 @@
     left: 50%;
     bottom: -15%;
     width: 100%;
-    @media screen and (orientation: landscape){
+    overflow: hidden;
+    transform: translateX(-50%);
+    transition: opacity 2s, left 1s;
+    
+    @include landscape {
         bottom: -30%;
         width: 44%;
         width: 90vh;
     }
-    transform: translateX(-50%);
-    transition: opacity 2s, left 1s;
-    overflow: hidden;
     
     &__project1 {
         img {

@@ -58,7 +58,6 @@
     position:relative;
     width: 21%;
     margin: 0 0.5em 1em 0.5em;
-    backface-visibility: hidden;
     overflow:hidden;
     
     @include landscape {

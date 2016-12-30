@@ -15,8 +15,6 @@ const checkBrowserSupport = (options) => {
     
     //Create DOM element for the purpose of testing css properties support
     let testElement = document.createElement('testElement');
-    document.body.appendChild(testElement);
-    testElement = document.getElementsByTagName('testElement')[0];
     
     for (let property in options){
         
@@ -46,9 +44,7 @@ const checkBrowserSupport = (options) => {
         }
     }
     
-    //After testing all properties remove the test element from DOM and 
-    //return object with working properties
-    document.body.removeChild(testElement);
+    //Return object with working properties
     return CSSProperties;  
 }
 

@@ -33,7 +33,7 @@
         
         @include landscapeSmall {
             font-size: 0.87em; 
-            margin-bottom: 0.75em;
+            margin: 0 auto 0.5em auto;
         }
         
         @include big {
@@ -55,6 +55,10 @@
     width: 15%;
     margin: 0 0.5em 1em 0.5em;
     overflow:hidden;
+    
+    @include landscapeSmall {
+        margin-bottom: 0.5em;
+    }
     
     @include portraitBig {
         width: 12%;

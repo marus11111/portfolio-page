@@ -72,12 +72,7 @@ const touchEnd = (e) => {
         //dispatched click event doesnt open href links, so they are opened manually
         let link = target.href || target.parentNode.href;
         if (link && link !== 'javascript:'){
-            if (/mailto|tel/.test(link)){
-                window.location = link;
-            }
-            else {
-                window.open(link);
-            }
+            window.open(link);
         }
     }
     else if (fullMenuOnPage){

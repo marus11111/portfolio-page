@@ -86,12 +86,15 @@
             }
             
             &--phone {
-                width: 9.7em;
+                width: 9em;
                 background-image: url($phone);
-                a {
-                    padding-left: 2em;
+                padding-left: 2em;
+                
+                &:after {
+                    content: ' 864 116';
                 }
-                 @include landscapeSmall {
+                
+                @include landscapeSmall {
                     display: inline-block;
                     margin-left: 1.5em; 
                 }
@@ -99,9 +102,12 @@
             &--email {
                 width: 15.5em;
                 background-image: url($email);
-                a {
-                    padding-left: 3em;
+                padding-left: 3em;
+            
+                &:after {
+                    content: '@gmail.com';
                 }
+                
                 @include landscapeSmall {
                     display: inline-block;
                 }

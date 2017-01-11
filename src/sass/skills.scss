@@ -8,46 +8,42 @@
         image: linear-gradient(to bottom, rgb(6, 22, 57) -30%, rgb(255, 240, 170));
     }
     
-    ul {
-        width: 75%;
-        max-width: 900px;
-        margin: 0.5em auto 0 auto;
-        
-        @include landscapeSmall {
-            font-size: 0.87em; 
+    &__row {
+        @include landscape { 
+            &:nth-child(odd) { 
+                text-align: left;
+            }
+            &:nth-child(even) { 
+                text-align: right;
+            }
+            &:last-child { 
+                text-align: center;
+            }
+            display: inline-block;
+            width: 45%;
         }
-        @include landscapeBig {
-            width: 100%; 
+        &:last-child { 
+            margin-bottom: 1em;
         }
     }
     
-    &__direct-li {
-        margin-top: 0.75em;
+    &__text {
+        max-width: 85%;
+        margin: 0.25em auto 1em auto;
+        
         @include landscapeSmall {
-            display: inline-block;
-            width: 45%;
-            margin-top: 0.25em;
-        }
-        @include landscapeBig {
-            margin-top: 1.5em;
+            font-size: 0.87em; 
+            margin-bottom: 0.75em;
         }
         
-        &:nth-child(3){
-            margin-bottom: 2em;
-            
-            @include landscapeSmall {
-               margin-top: 0.5em;
-            } 
+        @include big {
+            margin: 0.5em auto 1.5em auto; 
         }
     }
     
     &__heading {
         width: 5em;
         margin-bottom: 0.5em;
-        
-        @include landscapeSmall {
-            margin-bottom: 0;
-        }
     }
 }
 
@@ -56,15 +52,11 @@
 .logo{
     display: inline-block;
     position:relative;
-    width: 21%;
+    width: 15%;
     margin: 0 0.5em 1em 0.5em;
     overflow:hidden;
     
-    @include landscape {
-        margin-top: 0.5em;
-        margin-bottom: 0;
-    } 
-    @include landscapeBig {
+    @include portraitBig {
         width: 12%;
     }
     
@@ -72,7 +64,7 @@
         padding-bottom: 80%;
     }
     
-    $logos: html css js react sass jquery bootstrap photoshop php mysql git angular typescript tdd;
+    $logos: html css js react sass jquery bootstrap photoshop php mysql git angular typescript tdd webpack;
     
     @each $logo in $logos {
         $i: index($logos, $logo);

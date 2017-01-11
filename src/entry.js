@@ -1,5 +1,5 @@
 import './sass/entry.scss';
-import './sass/noJsStyle.scss';
+//import './sass/noJsStyle.scss';
 import './pics/sprite.png';
 import './pics/me.png';
 import './pics/device-mockup.png';

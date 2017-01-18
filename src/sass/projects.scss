@@ -37,7 +37,7 @@
     &__text {
         position:absolute;
         left:50%;
-        width: 80%;
+        width: 85%;
         line-height: 1.5em;
         padding-top: 1.5em;
         transform: translateX(-50%);
@@ -45,6 +45,7 @@
         
         @include landscapeSmall {
             padding-top: 0.5em;
+            font-size: 0.9em;
         }
         
         &__body {

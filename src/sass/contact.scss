@@ -84,7 +84,7 @@
         margin: 0.35em auto;
       }
       
-      &--phone {
+      &__phone {
         width: 9em;
         background-image: url($phone);
         padding-left: 2em;
@@ -99,7 +99,7 @@
         }
       }
       
-      &--email {
+      &__email {
         width: 15.5em;
         background-image: url($email);
         padding-left: 3em;
@@ -113,12 +113,12 @@
         }
       }
       
-      &--linkedin {
+      &__linkedin {
         width: 6em;
         height: 1.6em;
         overflow: hidden;
         
-        img {
+        .img-sprite {
           left: -500%;
         }
       }

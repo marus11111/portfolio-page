@@ -17,14 +17,17 @@ import './eventHandlers/resizeHandler';
 import './eventHandlers/menuItemClick';
 
 //obfuscate email and tel
-import {mail, tel} from './helpers/getDOMElements';
+import {
+  mail,
+  tel
+} from './helpers/getDOMElements';
 
 mail.addEventListener('click', () => {
-    let name = 'wlodarcz.marek';
-    let vendor = '@gmail.com';
-    window.location = `mailto:${name}${vendor}`;
+  let name = 'wlodarcz.marek';
+  let vendor = '@gmail.com';
+  window.location = `mailto:${name}${vendor}`;
 });
 tel.addEventListener('click', () => {
-    let partOfNumber = '864-116';
-    window.location = `tel:+48-664-${partOfNumber}`;
+  let partOfNumber = '864-116';
+  window.location = `tel:+48-664-${partOfNumber}`;
 });

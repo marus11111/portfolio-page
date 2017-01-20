@@ -1,125 +1,127 @@
 .contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: {
-        color: rgb(6, 22, 57);
-        image: linear-gradient(top right, rgb(6, 22, 57), rgb(255,240,170));
-        image: linear-gradient(to bottom left,rgb(6, 22, 57), rgb(255,240,170));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: {
+    color: rgb(6, 22, 57);
+    image: linear-gradient(top right, rgb(6, 22, 57), rgb(255, 240, 170));
+    image: linear-gradient(to bottom left, rgb(6, 22, 57), rgb(255, 240, 170));
+  }
+  
+  @include landscapeSmall {
+    font-size: 0.9em;
+  }
+  
+  &__heading {
+    width: 5.4em;
+    margin-bottom: 1.5em;
+    @include landscapeSmall {
+      margin-bottom: 0.5em;
     }
+  }
+  
+  &__body {
+    position: relative;
+    width: 80%;
+    line-height: 1.5em;
+    margin: 0 auto;
+  }
+  
+  &__cv {
+    position: relative;
+    margin-top: 1.5em;
     
     @include landscapeSmall {
-        font-size: 0.9em; 
+      margin-top: 0.75em;
     }
     
-    &__heading {
-        width: 5.4em;
-        margin-bottom: 1.5em;
+    &__button {
+      position: relative;
+      width: 8.5em;
+      height: 1.8em;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+      background: {
+        color: rgb(46, 67, 114);
+        image: linear-gradient(bottom right, rgb(46, 67, 114), rgb(119, 136, 170));
+        image: linear-gradient(to top left, rgb(46, 67, 114), rgb(119, 136, 170));
+      }
+      
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+  
+  &__list {
+    position: relative;
+    width: 16em;
+    margin: 1em auto;
+    
+    @include landscapeSmall {
+      width: 100%;
+      margin: 0.25em auto;
+    }
+    
+    &__item {
+      position: relative;
+      height: 2em;
+      cursor: pointer;
+      text-align: left;
+      line-height: 2em;
+      margin: 1.6em auto;
+      background: {
+        size: 14%;
+        repeat: no-repeat;
+        position: 0 50%;
+      }
+      
+      @include landscapeSmall {
+        margin: 0.35em auto;
+      }
+      
+      &--phone {
+        width: 9em;
+        background-image: url($phone);
+        padding-left: 2em;
+        
+        &:after {
+          content: ' 864 116';
+        }
         
         @include landscapeSmall {
-            margin-bottom: 0.5em; 
+          display: inline-block;
+          margin-left: 1.5em;
         }
-    }
-    
-    &__body {
-        position:relative;
-        width:80%;
-        line-height: 1.5em;
-        margin: 0 auto;
-    }
-    
-    &__cv {
-        position: relative;
-        margin-top: 1.5em;
+      }
+      
+      &--email {
+        width: 15.5em;
+        background-image: url($email);
+        padding-left: 3em;
+        
+        &:after {
+          content: '@gmail.com';
+        }
         
         @include landscapeSmall {
-            margin-top: 0.75em; 
+          display: inline-block;
         }
+      }
+      
+      &--linkedin {
+        width: 6em;
+        height: 1.6em;
+        overflow: hidden;
         
-        &__button {
-            position: relative;
-            width: 8.5em;
-            height: 1.8em;
-            cursor: pointer;
-            font: inherit;
-            color: inherit;
-            border: none;
-            outline: none;
-            box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
-            background: {
-                color: rgb(46, 67,114);
-                image: linear-gradient(bottom right, rgb(46, 67,114), rgb(119,136,170));
-                image: linear-gradient(to top left,rgb(46, 67,114), rgb(119,136,170));
-            }
-            
-            &:active {
-                transform: scale(0.95);
-            }
+        img {
+          left: -500%;
         }
+      }
     }
-    
-    &__list {
-        position: relative;
-        width:16em;
-        margin: 1em auto;
-        
-        @include landscapeSmall {
-            width:100%;
-            margin: 0.25em auto;
-        }
-        
-        &__item {
-            position: relative;
-            height: 2em;
-            cursor:pointer;
-            text-align: left;
-            line-height: 2em;
-            margin: 1.6em auto; 
-            background: {
-                size: 14%;
-                repeat: no-repeat;
-                position: 0 50%;
-            }
-            
-            @include landscapeSmall {
-                margin: 0.35em auto;
-            }
-            
-            &--phone {
-                width: 9em;
-                background-image: url($phone);
-                padding-left: 2em;
-                
-                &:after {
-                    content: ' 864 116';
-                }
-                
-                @include landscapeSmall {
-                    display: inline-block;
-                    margin-left: 1.5em; 
-                }
-            }
-            &--email {
-                width: 15.5em;
-                background-image: url($email);
-                padding-left: 3em;
-            
-                &:after {
-                    content: '@gmail.com';
-                }
-                
-                @include landscapeSmall {
-                    display: inline-block;
-                }
-            }
-            &--linkedin {
-                width: 6em;
-                height: 1.6em;
-                overflow: hidden;
-                img {
-                    left: -500%;
-                }
-            }
-        }
-    }    
+  }
 }

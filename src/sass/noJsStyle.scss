@@ -1,13 +1,14 @@
-body{
-    overflow-x: hidden;
-    overflow-y: scroll;
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.container, .no-js-container {
-    position: relative;
-    top: 0;
+.container,
+.no-js-container {
+  position: relative;
+  top: 0;
 }
 
-.no-js-container{
-    height: 100%;   
+.no-js-container {
+  height: 100%;
 }

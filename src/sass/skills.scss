@@ -1,81 +1,83 @@
 .skills {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: {
-        color: rgb(6, 22, 57);
-        image: linear-gradient(top, rgb(6, 22, 57), rgb(255, 240, 170));
-        image: linear-gradient(to bottom, rgb(6, 22, 57) -30%, rgb(255, 240, 170));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: {
+    color: rgb(6, 22, 57);
+    image: linear-gradient(top, rgb(6, 22, 57), rgb(255, 240, 170));
+    image: linear-gradient(to bottom, rgb(6, 22, 57) -30%, rgb(255, 240, 170));
+  }
+  
+  &__row {
+    
+    @include landscape {
+      display: inline-block;
+      width: 45%;
+      
+      &:nth-child(odd) {
+        text-align: left;
+      }
+      
+      &:nth-child(even) {
+        text-align: right;
+      }
+      
+      &:last-child {
+        text-align: center;
+      }
     }
     
-    &__row {
-        @include landscape { 
-            &:nth-child(odd) { 
-                text-align: left;
-            }
-            &:nth-child(even) { 
-                text-align: right;
-            }
-            &:last-child { 
-                text-align: center;
-            }
-            display: inline-block;
-            width: 45%;
-        }
-        &:last-child { 
-            margin-bottom: 1em;
-        }
+    &:last-child {
+      margin-bottom: 1em;
     }
-    
-    &__text {
-        max-width: 85%;
-        margin: 0.25em auto 1em auto;
-        
-        @include landscapeSmall {
-            font-size: 0.87em; 
-            margin: 0 auto 0.5em auto;
-        }
-        
-        @include big {
-            margin: 0.5em auto 1.5em auto; 
-        }
-    }
-    
-    &__heading {
-        width: 5em;
-        margin-bottom: 0.5em;
-    }
-}
-
-
-
-.logo{
-    display: inline-block;
-    position:relative;
-    width: 15%;
-    margin: 0 0.5em 1em 0.5em;
-    overflow:hidden;
+  }
+  
+  &__text {
+    max-width: 85%;
+    margin: 0.25em auto 1em auto;
     
     @include landscapeSmall {
-        margin-bottom: 0.5em;
+      font-size: 0.87em;
+      margin: 0 auto 0.5em auto;
     }
     
-    @include portraitBig {
-        width: 12%;
+    @include big {
+      margin: 0.5em auto 1.5em auto;
     }
-    
-    &--aspect-ratio-padding{
-        padding-bottom: 80%;
+  }
+  
+  &__heading {
+    width: 5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.logo {
+  display: inline-block;
+  position: relative;
+  width: 15%;
+  margin: 0 0.5em 1em 0.5em;
+  overflow: hidden;
+  
+  @include landscapeSmall {
+    margin-bottom: 0.5em;
+  }
+  
+  @include portraitBig {
+    width: 12%;
+  }
+  
+  &--aspect-ratio-padding {
+    padding-bottom: 80%;
+  }
+  
+  $logos: html css js react sass jquery bootstrap photoshop php mysql git angular typescript tdd webpack;
+  @each $logo in $logos {
+    $i: index($logos, $logo);
+    &__#{$logo} {
+      img {
+        left: ($i - 1)*(-100%);
+      }
     }
-    
-    $logos: html css js react sass jquery bootstrap photoshop php mysql git angular typescript tdd webpack;
-    
-    @each $logo in $logos {
-        $i: index($logos, $logo);
-        &__#{$logo} {
-            img {
-                left: ($i - 1)*(-100%);
-            }
-        }
-    }
+  }
 }

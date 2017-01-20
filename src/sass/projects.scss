@@ -1,100 +1,100 @@
 .project-container {
-    background: {
-        color: rgb(170,150, 57);
-        image: linear-gradient(bottom right, rgb(46, 67,114), rgb(255,240,170));
-        image: linear-gradient(to top left,rgb(46, 67,114), rgb(255,240,170));
-    }
+  background: {
+    color: rgb(170, 150, 57);
+    image: linear-gradient(bottom right, rgb(46, 67, 114), rgb(255, 240, 170));
+    image: linear-gradient(to top left, rgb(46, 67, 114), rgb(255, 240, 170));
+  }
 }
 
-.project{
-    position: relative;
-    top: 10%;
-    height: 60%;
-    margin: 0 auto;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
-    background: {
-        color: rgb(46, 67,114);
-        image: linear-gradient(top left, rgb(46, 67,114), rgb(119,136,170));
-        image: linear-gradient(to bottom right,rgb(46, 67,114), rgb(119,136,170));
+.project {
+  position: relative;
+  top: 10%;
+  height: 60%;
+  margin: 0 auto;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+  background: {
+    color: rgb(46, 67, 114);
+    image: linear-gradient(top left, rgb(46, 67, 114), rgb(119, 136, 170));
+    image: linear-gradient(to bottom right, rgb(46, 67, 114), rgb(119, 136, 170));
+  }
+  
+  @include landscape {
+    top: 5%;
+    height: 63%;
+  }
+  
+  &__heading {
+    margin-top: 0.5em;
+    width: 6em;
+    font-size: 1.3em;
+    
+    @include landscapeSmall {
+      font-size: 1em;
+      margin-bottom: 0.25em;
+    }
+  }
+  
+  &__text {
+    position: absolute;
+    left: 50%;
+    width: 85%;
+    line-height: 1.5em;
+    padding-top: 1.5em;
+    transform: translateX(-50%);
+    transition: opacity 1s;
+    
+    @include landscapeSmall {
+      padding-top: 0.5em;
+      font-size: 0.9em;
     }
     
-    @include landscape {
-        top: 5%;
-        height: 63%;
+    &__body {
+      position: relative;
+      top: 0.3em;
+      
+      @include landscapeSmall {
+        top: 0;
+      }
     }
-    
-    &__heading {
-        margin-top: 0.5em;
-        width: 6em;
-        font-size: 1.3em;
-        
-        @include landscapeSmall {
-            font-size: 1em;
-            margin-bottom: 0.25em;
-        }
-    }
-    
-    &__text {
-        position:absolute;
-        left:50%;
-        width: 85%;
-        line-height: 1.5em;
-        padding-top: 1.5em;
-        transform: translateX(-50%);
-        transition: opacity 1s;
-        
-        @include landscapeSmall {
-            padding-top: 0.5em;
-            font-size: 0.9em;
-        }
-        
-        &__body {
-            position: relative;
-            top: 0.3em;
-            
-            @include landscapeSmall {
-                top: 0;
-            }
-        }
-    }
+  }
 }
 
 .device-mockup {
-    position: absolute;
-    left: 50%;
-    bottom: -15%;
-    width: 100%;
-    overflow: hidden;
-    transform: translateX(-50%);
-    transition: opacity 2s, left 1s;
-    
-    @include landscape {
-        bottom: -30%;
-        width: 44%;
-        width: 90vh;
+  position: absolute;
+  left: 50%;
+  bottom: -15%;
+  width: 100%;
+  overflow: hidden;
+  transform: translateX(-50%);
+  transition: opacity 2s, left 1s;
+  
+  @include landscape {
+    bottom: -30%;
+    width: 44%;
+    width: 90vh;
+  }
+  
+  &__project1 {
+    img {
+      left: 0;
     }
-    
-    &__project1 {
-        img {
-            left: 0;
-        }
+  }
+  
+  &__project2 {
+    img {
+      left: -100%;
     }
-    
-    &__project2 {
-        img {
-            left: -100%;
-        }
-    }
-    
-    &--left {
-        left: -200%;
-    }
-    
-    &--right {
-        left: 200%;
-    }
-    
-    &--aspect-ratio-padding {
-        padding-bottom: 50%;
-    }
+  }
+  
+  &--left {
+    left: -200%;
+  }
+  
+  &--right {
+    left: 200%;
+  }
+  
+  &--aspect-ratio-padding {
+    padding-bottom: 50%;
+  }
 }

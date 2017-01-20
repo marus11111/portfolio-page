@@ -11,7 +11,10 @@ const optionsClip = [
     [0, 0, 30, 50], //top, right, bottom, left
     [0, 40, 45, 0],
     [50, 30, 10, 40],
-    [30, 52, 0, 0]        
+    [30, 52, 0, 0]
 ]
 
-export {optionsTransform, optionsClip};
+export {
+  optionsTransform,
+  optionsClip
+};

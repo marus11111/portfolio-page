@@ -1,172 +1,165 @@
 // All the animations used in project
-
 @keyframes reveal-element {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes hide-before-revealing {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes slide-from-top {
-    0% {
-        transform: translateY(-100%);    
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-from-bottom {
-    0% {
-        transform: translateY(100%);    
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-from-right {
-    0% {
-        transform: translateX(100%);    
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slide-from-left {
-    0% {
-        transform: translateX(-100%);    
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes heading-background {
-    0% {
-        background-color: rgba(0,0,0,0.0);
-        
-    }
-    100% {
-        background-color: rgba(0,0,0,0.6);
-    }
+  0% {
+    background-color: rgba(0, 0, 0, 0.0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 }
 
 @keyframes heading-shadow {
-    0% {
-        box-shadow: inset 0 0 0 0 rgba(0,0,0,0.0);
-        
-    }
-    100% {
-        box-shadow: inset 0 0 0.4em 0.1em rgba(0,0,0,0.9);
-    }
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.0);
+  }
+  100% {
+    box-shadow: inset 0 0 0.4em 0.1em rgba(0, 0, 0, 0.9);
+  }
 }
 
-@keyframes top-left-corner{
-    0% {
-        transform: translate(-100%, -100%);
-    }
+@keyframes top-left-corner {
+  0% {
+    transform: translate(-100%, -100%);
+  }
 }
 
-@keyframes bottom-right-corner{
-    0% {
-        transform: translate(100%, 100%);
-    }
+@keyframes bottom-right-corner {
+  0% {
+    transform: translate(100%, 100%);
+  }
 }
 
 @keyframes logos {
-    0% {
-        opacity: 0;
-        transform: perspective(200px) rotate3d(1, 1.75, 0, 75deg);
-    }
-    100% {
-        opacity: 1;
-        transform: perspective(200px) rotate3d(0, 0, 0, 0);
-    }
+  0% {
+    opacity: 0;
+    transform: perspective(200px) rotate3d(1, 1.75, 0, 75deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(200px) rotate3d(0, 0, 0, 0);
+  }
 }
 
 .repeating-animations {
-    .corner {
-        &__top-left {
-            animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, top-left-corner 1s 0.2s ease-out;
-        }
-        &__bottom-right {
-            animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, bottom-right-corner 1s 0.2s ease-out;
-        }
+  .corner {
+    &__top-left {
+      animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, top-left-corner 1s 0.2s ease-out;
     }
-    .scroll-arrow-icon {
-        animation: hide-before-revealing 1s, reveal-element 2s 1s, slide-from-top 2s 1s ease-in;
+    &__bottom-right {
+      animation: hide-before-revealing 0.2s, reveal-element 1s 0.2s, bottom-right-corner 1s 0.2s ease-out;
     }
-    .about__text {
-        animation: reveal-element 1s;
+  }
+  .scroll-arrow-icon {
+    animation: hide-before-revealing 1s, reveal-element 2s 1s, slide-from-top 2s 1s ease-in;
+  }
+  .about__text {
+    animation: reveal-element 1s;
+  }
+  .logo {
+    animation: logos 2s;
+  }
+  .contact__list__item {
+    &--email {
+      animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
-    .logo {
-        animation: logos 2s;
+    &--phone {
+      animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
-    .contact__list__item {
-        &--email{
-            animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
-        }
-        &--phone {
-            animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
-        }
-        &--linkedin{
-            animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
-        }
+    &--linkedin {
+      animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
+  }
 }
 
 .masthead-heading {
-    animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
-    &__border {
-        &--left {
-            animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
-        }
-        &--right {
-            animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
-        }
-        &--top {
-            animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
-        }
-        &--bottom {
-            animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
-        }
+  animation: heading-shadow 1s 2.5s linear forwards, heading-background 1s 2s linear forwards;
+  &__border {
+    &--left {
+      animation: slide-from-top 2s ease-out, reveal-element 2s ease-in;
     }
-    &__name{
-        animation: reveal-element 2s linear;
+    &--right {
+      animation: slide-from-bottom 2s ease-out, reveal-element 2s ease-in;
     }
-
-    &__occupation{
-        animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear;
+    &--top {
+      animation: slide-from-right 2s ease-out, reveal-element 2s ease-in;
     }
+    &--bottom {
+      animation: slide-from-left 2s ease-out, reveal-element 2s ease-in;
+    }
+  }
+  &__name {
+    animation: reveal-element 2s linear;
+  }
+  &__occupation {
+    animation: hide-before-revealing 0.5s, reveal-element 2s 0.5s linear;
+  }
 }
 
-
 .menu {
-    animation: hide-before-revealing 2s, reveal-element 2s 2s;
-    
-    ul {
-        animation: hide-before-revealing 0.2s, reveal-element 0.5s 0.2s;
+  animation: hide-before-revealing 2s, reveal-element 2s 2s;
+  ul {
+    animation: hide-before-revealing 0.2s, reveal-element 0.5s 0.2s;
+  }
+  .corner {
+    &__top-left {
+      animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
     }
-    
-    .corner {
-        &__top-left{
-            animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, top-left-corner 1s 2.5s ease-out;
-        }
-        &__bottom-right{
-            animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;  
-        }
+    &__bottom-right {
+      animation: hide-before-revealing 2.5s, reveal-element 1s 2.5s, bottom-right-corner 1s 2.5s ease-out;
     }
+  }
 }

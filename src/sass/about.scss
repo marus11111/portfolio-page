@@ -36,7 +36,11 @@
       }
     }
     
-    p {
+    &__heading {
+      width: 5em;
+    }
+    
+    &__body {
       position: relative;
       font-size: 1.2em;
       
@@ -49,6 +53,7 @@
       }
     }
   }
+  
   &__picture-of-me {
     display: none;
     
@@ -67,9 +72,5 @@
         transform: translateX(50%);
       }
     }
-  }
-  
-  &__heading {
-    width: 5em;
   }
 }

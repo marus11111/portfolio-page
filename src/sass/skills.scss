@@ -67,7 +67,7 @@
     width: 12%;
   }
   
-  &--aspect-ratio-padding {
+  &__aspect-ratio-padding {
     padding-bottom: 80%;
   }
   
@@ -75,7 +75,7 @@
   @each $logo in $logos {
     $i: index($logos, $logo);
     &__#{$logo} {
-      img {
+      .img-sprite {
         left: ($i - 1)*(-100%);
       }
     }

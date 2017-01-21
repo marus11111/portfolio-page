@@ -26,14 +26,14 @@ const removeBlur = () => {
 const minimizeMenu = () => {
   fullMenuOnPage = false;
   menu.className += ' menu--minimized';
-  removeClasses(menu, 'menu--home', 'menu--full');
+  removeClasses(menu, 'menu--home-page', 'menu--full');
   removeBlur();
 }
 
 //Function that shows menu
 const showHomeMenu = () => {
   fullMenuOnPage = false;
-  menu.className += ' menu--home';
+  menu.className += ' menu--home-page';
   removeClasses(menu, 'menu--minimized', 'menu--full');
   removeBlur();
 }
@@ -42,7 +42,7 @@ const showHomeMenu = () => {
 const showFullMenu = () => {
   fullMenuOnPage = true;
   menu.className += ' menu--full';
-  removeClasses(menu, 'menu--home', 'menu--minimized');
+  removeClasses(menu, 'menu--home-page', 'menu--minimized');
   filter ? containers[page].className += ' container--blur' :
     containers[page].className += ' container--darken';
 }

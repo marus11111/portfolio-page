@@ -43,6 +43,7 @@
     &__body {
       position: relative;
       font-size: 1.2em;
+      margin-bottom: 10%;
       
       @include landscapeSmall {
         font-size: 0.95em;

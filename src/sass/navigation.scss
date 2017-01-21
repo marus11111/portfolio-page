@@ -105,8 +105,8 @@
           size: contain;
         }
         transform: translateX(-50%);
-        transition: transform 0.2s,
-        opacity 0.25s;
+        transition: transform 0.2s, opacity 0.25s;
+        backface-visibility: hidden;
         
         &:hover {
           transform: translateX(-50%) scale(1.05);

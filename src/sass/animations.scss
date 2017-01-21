@@ -113,13 +113,13 @@
     animation: logos 2s;
   }
   .contact__list__item {
-    &--email {
+    &__email {
       animation: slide-from-left 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
-    &--phone {
+    &__phone {
       animation: slide-from-right 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
-    &--linkedin {
+    &__linkedin {
       animation: slide-from-bottom 1.5s 0.2s ease-out, hide-before-revealing 0.2s, reveal-element 2.5s 0.2s;
     }
   }
@@ -151,7 +151,7 @@
 
 .menu {
   animation: hide-before-revealing 2s, reveal-element 2s 2s;
-  ul {
+  &__list {
     animation: hide-before-revealing 0.2s, reveal-element 0.5s 0.2s;
   }
   .corner {

@@ -3,4 +3,4 @@ package.json
 webpack.config.production.js
 webpack.config.development.js
 Photoshop
-src/pics
+dist

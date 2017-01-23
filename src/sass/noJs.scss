@@ -1,0 +1,19 @@
+.no-js {
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .container,
+  .no-js-container {
+    position: static;
+  }
+  
+  .no-js-container {
+    height: 100%;
+  }
+  
+  .about__picture-of-me {
+    bottom: -100%;
+  }
+}

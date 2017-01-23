@@ -1,26 +1,22 @@
-import './sass/entry.scss';
-import './sass/noJsStyle.scss';
-import './pics/sprite.png';
-import './pics/me.png';
-import './pics/device-mockup.png';
-import './polyfills/ie-touch';
-import './navigation/initialProjectsSetup';
-import './navigation/changePage';
-import './navigation/changeProject';
-import './navigation/hideShowMenu';
-import './mastheadEffect/mastheadEffect';
-import './eventHandlers/mouseWheelHandler';
-import './eventHandlers/mouseMoveHandler';
-import './eventHandlers/keyDownHandler';
-import './eventHandlers/touchHandler';
-import './eventHandlers/resizeHandler';
-import './eventHandlers/menuItemClick';
+import './entry.scss';
+import './js/polyfills/ie-touch';
+import './js/navigation/initialProjectsSetup';
+import './js/navigation/changePage';
+import './js/navigation/changeProject';
+import './js/navigation/hideShowMenu';
+import './js/mastheadEffect/mastheadEffect';
+import './js/eventHandlers/mouseWheelHandler';
+import './js/eventHandlers/mouseMoveHandler';
+import './js/eventHandlers/keyDownHandler';
+import './js/eventHandlers/touchHandler';
+import './js/eventHandlers/resizeHandler';
+import './js/eventHandlers/menuItemClick';
 
 //obfuscate email and tel
 import {
   mail,
   tel
-} from './helpers/getDOMElements';
+} from './js/helpers/getDOMElements';
 
 mail.addEventListener('click', () => {
   let name = 'wlodarcz.marek';

@@ -45,12 +45,17 @@
       font-size: 1.2em;
       margin-bottom: 10%;
       
+      @include portraitBig {
+        margin-bottom: 0;
+        font-size: 1.1em;
+      }
+      
       @include landscapeSmall {
         font-size: 0.95em;
       }
       
       @include landscapeBig {
-        max-width: 365px;
+        max-width: 14em;
       }
     }
   }
